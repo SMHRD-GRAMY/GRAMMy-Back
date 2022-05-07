@@ -26,6 +26,7 @@ import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.google.gson.Gson;
+import com.grammy.myapp.config.auth.Auth;
 import com.grammy.myapp.config.auth.CustomUserDetailService;
 import com.grammy.myapp.config.jwt.JwtTokenProvider;
 import com.grammy.myapp.domain.TB_UserVO;
@@ -112,7 +113,16 @@ public class TB_UserController {
         if (!passwordEncoder.matches(user.getPassword(), member.getPassword())) {
             throw new IllegalArgumentException("잘못된 비밀번호입니다.");
         }
-        return jwtTokenProvider.createToken(member.getUsername(), member.getUserRoleList());
+        
+        String token=jwtTokenProvider.createToken(member.getUsername(), member.getUserRoleList());
+        String user_name=member.getUsername();
+        String user_id=member.getUserId();
+        Auth auth=new Auth(token,user_name,user_id);
+        String result = gson.toJson(auth);
+
+
+        
+        return result;
     }
 	
 
