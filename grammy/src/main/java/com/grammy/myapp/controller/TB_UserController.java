@@ -115,7 +115,7 @@ public class TB_UserController {
         }
         
         String token=jwtTokenProvider.createToken(member.getUsername(), member.getUserRoleList());
-        String user_name=member.getUsername();
+        String user_name=member.getUser_Name();
         String user_id=member.getUserId();
         Auth auth=new Auth(token,user_name,user_id);
         String result = gson.toJson(auth);

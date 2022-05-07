@@ -49,7 +49,7 @@ public class User implements UserDetails{
     private String userJoindate;
     
     @Column(name = "user_name")
-    private String userName;
+    private String user_Name;
     
     @Column(name = "user_gender")
     private String userGender;
