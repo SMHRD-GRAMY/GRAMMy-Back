@@ -58,7 +58,7 @@ public class TB_UserController {
 	
 	
 	
-	@GetMapping("/user")
+	@GetMapping("/user.do")
 	public List<TB_UserVO> selectList() throws Exception{
 		List<TB_UserVO> allUser=service.selectList();
 		return allUser;
@@ -123,4 +123,6 @@ public class TB_UserController {
         
         return result;
     }
+    
+
 }

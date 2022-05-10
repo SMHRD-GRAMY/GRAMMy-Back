@@ -1,6 +1,6 @@
 select * from tb_user;
 delete from tb_user;
-alter table tb_user add user_gender varchar(30) not null;
+select * from TB_PURCHASE;
 
 DROP TABLE tb_user CASCADE CONSTRAINTS;
 DROP TABLE tb_shelf CASCADE CONSTRAINTS;
@@ -12,6 +12,36 @@ DROP TABLE tb_stock_weight CASCADE CONSTRAINTS;
 DROP TABLE tb_reply CASCADE CONSTRAINTS;
 
 drop trigger TB_USER_AI_TRG;
+
+INSERT INTO tb_purchase
+    (purchase_seq,
+    purchase_title, 
+    purchase_content, 
+    purchase_date, 
+    purchase_cnt, 
+    user_id)
+VALUES
+    (tb_purchase_SEQ.nextval,
+    'purchase_title 1', 
+    'purchase_content 1', 
+    sysdate, 
+    1, 
+    'user_id 1');
+    INSERT INTO tb_purchase
+    (purchase_seq,
+    purchase_title, 
+    purchase_content, 
+    purchase_date, 
+    purchase_cnt, 
+    user_id)
+VALUES
+    (tb_purchase_SEQ.nextval,
+    'purchase_title 2', 
+    'purchase_content 2', 
+    sysdate, 
+    1, 
+    'user_id 1');
+
 
 
 -- tb_user Table Create SQL
