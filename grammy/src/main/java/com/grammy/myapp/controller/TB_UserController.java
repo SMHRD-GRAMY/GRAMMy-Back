@@ -120,8 +120,6 @@ public class TB_UserController {
         String user_id=member.getUserId();
         Auth auth=new Auth(token,user_id,user_name);
         String result = gson.toJson(auth);
-
-
         
         return result;
     }
