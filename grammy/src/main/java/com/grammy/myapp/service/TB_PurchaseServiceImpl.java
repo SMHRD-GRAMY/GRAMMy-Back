@@ -26,4 +26,22 @@ public class TB_PurchaseServiceImpl implements TB_PurchaseService{
 		return mapper.DetailContent(purchase_seq);
 	}
 
+	@Override
+	public int DeletePurchase(int purchase_seq) throws Exception {
+		
+		return mapper.DeletePurchase(purchase_seq);
+	}
+
+	@Override
+	public int UpdatePurchase(TB_PurchaseVO vo) throws Exception {
+		
+		return mapper.UpdatePurchase(vo);
+	}
+
+	@Override
+	public void InsertPurchase(TB_PurchaseVO vo) throws Exception {
+		mapper.InsertPurchase(vo);
+		
+	}
+
 }

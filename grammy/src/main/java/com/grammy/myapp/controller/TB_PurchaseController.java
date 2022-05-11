@@ -31,6 +31,28 @@ public class TB_PurchaseController {
 		
 		return service.DetaliContent(purchase_seq);
 	}
-
+	//게시판 삭제
+	@RequestMapping("/delete.do")
+	public String Delete(int purchase_seq) throws Exception{
+		int result=service.DeletePurchase(purchase_seq);
+		if(result>0) {
+		return "Success";
+		}
+		else {
+			return "fail";
+		}
+	}
+	//게시판 업데이트
+	@RequestMapping("/update.do")
+	public String Update(int purchase_seq) throws Exception{
+		
+		return "Success";
+	}
+	//게시판 작성
+	@RequestMapping("/insert.do")
+	public String Insert(int purchase_seq) throws Exception{
+		
+		return "Success";
+	}
 
 }

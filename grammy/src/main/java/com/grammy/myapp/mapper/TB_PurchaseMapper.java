@@ -14,5 +14,12 @@ public interface TB_PurchaseMapper {
 	
 	//세부내용 가져오기
 	public TB_PurchaseVO DetailContent(int pruchase_seq);
+	
+	//게시판 지우기
+	public int DeletePurchase(int purchase_seq);
+	//게시판 업데이트
+	public int UpdatePurchase(TB_PurchaseVO vo);
+	//게시판 작성
+	public void InsertPurchase(TB_PurchaseVO vo);
 
 }
