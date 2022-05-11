@@ -4,6 +4,7 @@ import java.util.List;
 
 import org.mybatis.spring.annotation.MapperScan;
 
+import com.grammy.myapp.domain.TB_P_ReplyVO;
 import com.grammy.myapp.domain.TB_PurchaseVO;
 
 @MapperScan
@@ -17,11 +18,14 @@ public interface TB_PurchaseMapper {
 	
 	//게시판 지우기
 	public int DeletePurchase(int purchase_seq);
-	//게시판 업데이트
+	//게시판 업데이트 수정 
 	public int UpdatePurchase(TB_PurchaseVO vo);
 	//게시판 작성
 	public void InsertPurchase(TB_PurchaseVO vo);
 	//조회수 증가
 	public void viewCount(int purchase_seq);
+	//댓글리스트 가져오기
+	public List<TB_P_ReplyVO> ReplyList(int purchase_seq);
+	//댓글 업데이트 수정
 
 }

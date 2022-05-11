@@ -10,6 +10,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
+import com.grammy.myapp.domain.TB_P_ReplyVO;
 import com.grammy.myapp.domain.TB_PurchaseVO;
 import com.grammy.myapp.domain.TB_ReportVO;
 import com.grammy.myapp.service.TB_ReportService;
@@ -64,6 +65,13 @@ public class TB_ReportController {
 		System.out.println(vo);
 		service.InsertReport(vo);
 		return "Success";
+	}
+	//댓글 불러오기
+	@RequestMapping(value="/replylist.do",method=RequestMethod.POST)
+	public List<TB_P_ReplyVO> ReplyList(@RequestBody int report_seq) throws Exception{
+		
+		
+		return null;
 	}
 
 }

@@ -5,6 +5,7 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import com.grammy.myapp.domain.TB_P_ReplyVO;
 import com.grammy.myapp.domain.TB_PurchaseVO;
 import com.grammy.myapp.mapper.TB_PurchaseMapper;
 
@@ -48,6 +49,12 @@ public class TB_PurchaseServiceImpl implements TB_PurchaseService{
 	public void viewCount(int purchase_seq) throws Exception {
 		mapper.viewCount(purchase_seq);
 		
+	}
+
+	@Override
+	public List<TB_P_ReplyVO> ReplyList(int purchase_seq) throws Exception {
+		
+		return mapper.ReplyList(purchase_seq);
 	}
 
 }
