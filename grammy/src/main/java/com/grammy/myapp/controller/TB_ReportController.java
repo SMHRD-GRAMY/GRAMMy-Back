@@ -36,7 +36,7 @@ public class TB_ReportController {
 		return service.DetaliContent(report_seq);
 	}
 	//게시판 삭제
-	@RequestMapping(value="/delete.do",method = RequestMethod.GET)
+	@RequestMapping(value="/delete.do",method = RequestMethod.POST)
 	public String Delete(@RequestBody int report_seq) throws Exception{
 		int result=service.DeleteReport(report_seq);
 		if(result>0) {

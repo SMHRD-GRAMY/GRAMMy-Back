@@ -35,7 +35,7 @@ public class TB_PurchaseController {
 		return service.DetaliContent(purchase_seq);
 	}
 	//게시판 삭제
-	@RequestMapping(value="/delete.do",method = RequestMethod.GET)
+	@RequestMapping(value="/delete.do",method = RequestMethod.POST)
 	public String Delete(@RequestBody int purchase_seq) throws Exception{
 		int result=service.DeletePurchase(purchase_seq);
 		if(result>0) {
@@ -59,6 +59,9 @@ public class TB_PurchaseController {
 	@RequestMapping(value="/insert.do",method=RequestMethod.POST)
 	public String Insert(@RequestBody TB_PurchaseVO vo) throws Exception{
 		System.out.println(vo);
+		System.out.println(vo);
+		System.out.println(vo);
+		
 		service.InsertPurchase(vo);
 		return "Success";
 	}
