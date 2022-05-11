@@ -25,7 +25,7 @@ public interface TB_PurchaseService {
 	
 	public int UpdateReply(TB_P_ReplyVO vo) throws Exception;
 
-	public int DeleteRelpy(int pr_seq) throws Exception;
+	public int DeleteReply(int pr_seq) throws Exception;
 
 	public void InsertReply(TB_P_ReplyVO vo) throws Exception;
 }
