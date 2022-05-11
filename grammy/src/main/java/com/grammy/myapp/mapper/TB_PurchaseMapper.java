@@ -11,5 +11,8 @@ public interface TB_PurchaseMapper {
 	
 	//리스트 다가져오기
 	public List<TB_PurchaseVO> AllList();
+	
+	//세부내용 가져오기
+	public TB_PurchaseVO DetailContent(int pruchase_seq);
 
 }

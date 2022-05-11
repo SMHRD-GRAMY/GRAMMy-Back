@@ -2,7 +2,18 @@
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.grammy.myapp.mapper.TB_PurchaseMapper">
 
+<!-- 게시판 목록 -->
 <select id="AllList" resultType="com.grammy.myapp.domain.TB_PurchaseVO">
 	select purchase_seq,purchase_title,purchase_content,purchase_date,purchase_cnt,user_id from TB_purchase
 </select>
+<!-- 게시판 상세내용 -->
+<select id="DetailContent" resultType="com.grammy.myapp.domain.TB_PurchaseVO" >
+	select * from TB_purchase where pruchase_seq =${purchase_seq}
+</select>
+
+<!-- 게시판 삭제 -->
+<delete id="DeletePurchase">
+	delete from TB_Purchase where purchase_seq=${purchase_seq}
+</delete>
+
 </mapper>

@@ -12,7 +12,7 @@ public class TB_PurchaseVO {
 	private int purchase_seq;
 	private String purchase_title;
 	private String purchase_content;
-	private String date;
+	private String purchase_date;
 	private int purchase_cnt;
 	private String user_id;
 

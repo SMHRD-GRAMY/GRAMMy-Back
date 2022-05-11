@@ -24,5 +24,13 @@ public class TB_PurchaseController {
 		
 		return list;
 	}
+	
+	//게시판 상세내용
+	@RequestMapping("/content.do")
+	public TB_PurchaseVO DetailContent(int purchase_seq) throws Exception{
+		
+		return service.DetaliContent(purchase_seq);
+	}
+
 
 }

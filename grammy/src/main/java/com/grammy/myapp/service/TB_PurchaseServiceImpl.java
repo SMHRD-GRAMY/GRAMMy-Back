@@ -20,4 +20,10 @@ public class TB_PurchaseServiceImpl implements TB_PurchaseService{
 		return mapper.AllList();
 	}
 
+	@Override
+	public TB_PurchaseVO DetaliContent(int purchase_seq) throws Exception {
+		
+		return mapper.DetailContent(purchase_seq);
+	}
+
 }
