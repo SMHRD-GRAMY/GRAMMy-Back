@@ -21,5 +21,7 @@ public interface TB_PurchaseMapper {
 	public int UpdatePurchase(TB_PurchaseVO vo);
 	//게시판 작성
 	public void InsertPurchase(TB_PurchaseVO vo);
+	//조회수 증가
+	public void viewCount(int purchase_seq);
 
 }

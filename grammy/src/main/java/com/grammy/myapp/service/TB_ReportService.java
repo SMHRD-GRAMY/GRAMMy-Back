@@ -18,5 +18,7 @@ public interface TB_ReportService {
 	public int UpdateReport(TB_ReportVO vo) throws Exception;
 	
 	public void InsertReport(TB_ReportVO vo) throws Exception;
+	
+	public void viewCount(int report_seq) throws Exception;
 
 }

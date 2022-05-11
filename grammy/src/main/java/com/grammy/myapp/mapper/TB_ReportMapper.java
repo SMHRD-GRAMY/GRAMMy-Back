@@ -21,5 +21,6 @@ public interface TB_ReportMapper {
 	public int UpdateReport(TB_ReportVO vo);
 	//게시판 작성
 	public void InsertReport(TB_ReportVO vo);
-
+	//조회수 증가
+	public void viewCount(int report_seq);
 }

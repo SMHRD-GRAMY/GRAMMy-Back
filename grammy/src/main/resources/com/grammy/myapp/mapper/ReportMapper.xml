@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.grammy.myapp.mapper.TB_ReportMapper">
+<!-- 게시판 목록 -->
+<select id="AllList" resultType="com.grammy.myapp.domain.TB_ReportVO">
+	select report_seq,report_title,report_content,report_date,report_status,user_id,report_cnt from tb_report order by report_seq desc
+</select>
+<!-- 게시판 상세내용 -->
+<select id="DetailContent" resultType="com.grammy.myapp.domain.TB_ReportVO" >
+	select * from TB_reprot where report_seq =#{report_seq}
+</select>
+
+<!-- 게시판 삭제 -->
+<delete id="DeleteReport" parameterType="int">
+	delete from TB_Reprot where report_seq=#{report_seq}
+</delete>
+<!-- 게시판 업데이트 -->
+<update id="UpdateReport" parameterType="com.grammy.myapp.domain.TB_ReportVO">
+update TB_report set report_title=#{report_title},report_content=#{report_content} where report_seq=#{report_seq} 
+</update>
+<!-- 게시판 작성 -->
+<insert id="InsertReport" parameterType="com.grammy.myapp.domain.TB_ReportVO">
+insert into TB_report(report_seq,
+    report_title, 
+    report_content, 
+    report_date,
+    report_stauts, 
+    user_id,
+    report_cnt) values(
+    tb_report_SEQ.nextval,
+    #{report_title}, 
+    #{report_content}, 
+    sysdate,
+    'n', 
+    #{user_id},
+    1
+    ) 
+</insert>
+<!-- 조회수 증가 -->
+<update id="viewCount" parameterType="com.grammy.myapp.domain.TB_ReportVO">
+update TB_report set report_cnt=report_cnt+1 where report_seq=#{report_seq}
+</update>
+</mapper>

@@ -12,9 +12,9 @@ public class TB_ReportVO {
 	private String report_title;
 	private String report_content;
 	private String report_date;
-	private String report_file;
 	private char report_status;
 	private String user_id;
+	private int report_cnt;
 	
 
 }

@@ -4,7 +4,7 @@
 
 <!-- 게시판 목록 -->
 <select id="AllList" resultType="com.grammy.myapp.domain.TB_PurchaseVO">
-	select purchase_seq,purchase_title,purchase_content,purchase_date,purchase_cnt,user_id from TB_purchase
+	select purchase_seq,purchase_title,purchase_content,purchase_date,purchase_cnt,user_id from TB_purchase order by purchase_seq desc
 </select>
 <!-- 게시판 상세내용 -->
 <select id="DetailContent" resultType="com.grammy.myapp.domain.TB_PurchaseVO" >
@@ -35,6 +35,9 @@ insert into TB_purchase(purchase_seq,
     #{user_id}
     ) 
 </insert>
-
+<!-- 조회수 증가 -->
+<update id="viewCount" parameterType="com.grammy.myapp.domain.TB_PurchaseVO">
+update TB_purchase set purchase_cnt=purchase_cnt+1 where purchase_seq=#{purchase_seq}
+</update>
 
 </mapper>

@@ -18,4 +18,5 @@ public interface TB_PurchaseService {
 	
 	public void InsertPurchase(TB_PurchaseVO vo) throws Exception;
 
+	public void viewCount(int purchase_seq) throws Exception;
 }

@@ -44,4 +44,10 @@ public class TB_ReportServiceImpl implements TB_ReportService{
 		
 	}
 
+	@Override
+	public void viewCount(int report_seq) throws Exception {
+		mapper.viewCount(report_seq);
+		
+	}
+
 }

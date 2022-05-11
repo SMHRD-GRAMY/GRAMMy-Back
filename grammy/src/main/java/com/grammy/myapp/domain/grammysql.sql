@@ -56,7 +56,8 @@ CREATE TABLE tb_user
     user_joindate    DATE             NOT NULL, 
     user_name        VARCHAR2(30)     NOT NULL, 
     user_gender      VARCHAR2(30)     NOT NULL, 
-     PRIMARY KEY (user_seq)
+     PRIMARY KEY (user_seq),
+     UNIQUE KEY(user_id)
 )
 /
 
@@ -188,9 +189,9 @@ CREATE TABLE tb_report
     report_title      VARCHAR2(200)     NOT NULL, 
     report_content    VARCHAR2(4000)    NOT NULL, 
     report_date       DATE              NOT NULL, 
-    report_file       VARCHAR2(200)     NOT NULL, 
     report_status     CHAR(1)           NOT NULL, 
-    user_id           VARCHAR2(30)      NOT NULL, 
+    user_id           VARCHAR2(30)      NOT NULL,
+    report_cnt		  NUMBER(12,0)		NOT NULL,
      PRIMARY KEY (report_seq)
 )
 /

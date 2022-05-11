@@ -7,6 +7,7 @@ import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.grammy.myapp.domain.TB_PurchaseVO;
@@ -32,12 +33,13 @@ public class TB_ReportController {
 	@RequestMapping(value="/content.do",method = RequestMethod.POST)
 	public TB_ReportVO DetailContent(@RequestBody int report_seq) throws Exception{
 		System.out.println(report_seq);
+		service.viewCount(report_seq);
 		
 		return service.DetaliContent(report_seq);
 	}
 	//게시판 삭제
 	@RequestMapping(value="/delete.do",method = RequestMethod.POST)
-	public String Delete(@RequestBody int report_seq) throws Exception{
+	public String Delete(@RequestParam int report_seq) throws Exception{
 		int result=service.DeleteReport(report_seq);
 		if(result>0) {
 		return "Success";

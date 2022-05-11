@@ -44,4 +44,10 @@ public class TB_PurchaseServiceImpl implements TB_PurchaseService{
 		
 	}
 
+	@Override
+	public void viewCount(int purchase_seq) throws Exception {
+		mapper.viewCount(purchase_seq);
+		
+	}
+
 }
