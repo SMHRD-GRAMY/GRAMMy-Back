@@ -29,7 +29,7 @@ public interface TB_PurchaseMapper {
 	//댓글 업데이트 수정
 	public int UpdateReply(TB_P_ReplyVO vo);
 	//댓글 삭제
-	public int DeleteRelpy(int pr_seq);
+	public int DeleteReply(int pr_seq);
 	//댓글 작성
 	public void InsertReply(TB_P_ReplyVO vo);
 

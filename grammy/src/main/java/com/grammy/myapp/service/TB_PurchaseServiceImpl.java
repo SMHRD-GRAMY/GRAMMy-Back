@@ -66,7 +66,7 @@ public class TB_PurchaseServiceImpl implements TB_PurchaseService{
 	@Override
 	public int DeleteReply(int pr_seq) throws Exception {
 		
-		return mapper.DeleteRelpy(pr_seq);
+		return mapper.DeleteReply(pr_seq);
 	}
 
 	@Override
