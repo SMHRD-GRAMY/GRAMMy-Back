@@ -4,6 +4,7 @@ import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.CrossOrigin;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
@@ -27,13 +28,14 @@ public class TB_PurchaseController {
 	
 	//게시판 상세내용
 	@RequestMapping("/content.do")
-	public TB_PurchaseVO DetailContent(int purchase_seq) throws Exception{
+	public TB_PurchaseVO DetailContent(@RequestBody int purchase_seq) throws Exception{
+		System.out.println(purchase_seq);
 		
 		return service.DetaliContent(purchase_seq);
 	}
 	//게시판 삭제
 	@RequestMapping("/delete.do")
-	public String Delete(int purchase_seq) throws Exception{
+	public String Delete(@RequestBody int purchase_seq) throws Exception{
 		int result=service.DeletePurchase(purchase_seq);
 		if(result>0) {
 		return "Success";
@@ -44,13 +46,17 @@ public class TB_PurchaseController {
 	}
 	//게시판 업데이트
 	@RequestMapping("/update.do")
-	public String Update(int purchase_seq) throws Exception{
-		
+	public String Update(@RequestBody TB_PurchaseVO vo) throws Exception{
+		int result=service.UpdatePurchase(vo);
+		if(result>0) {
 		return "Success";
+		}else {
+		return "fail";
+		}
 	}
 	//게시판 작성
 	@RequestMapping("/insert.do")
-	public String Insert(int purchase_seq) throws Exception{
+	public String Insert(@RequestBody int purchase_seq) throws Exception{
 		
 		return "Success";
 	}
