@@ -87,7 +87,7 @@ public class TB_ReportController {
 	
 	//댓글 삭제하기
 	@RequestMapping(value="/replydelete.do",method=RequestMethod.GET)
-	public String DelteReply(@RequestParam int reply_seq) throws Exception {
+	public String DeleteReply(@RequestParam int reply_seq) throws Exception {
 		int result=service.DeleteRelpy(reply_seq);
 		if(result>0) {
 			return "success";

@@ -93,7 +93,7 @@ public class TB_PurchaseController {
 	
 	//댓글 삭제하기
 	@RequestMapping(value="/replydelete.do",method=RequestMethod.GET)
-	public String DelteReply(@RequestParam int pr_seq) throws Exception {
+	public String DeleteReply(@RequestParam int pr_seq) throws Exception {
 		int result=service.DeleteReply(pr_seq);
 		if(result>0) {
 			return "success";
