@@ -14,6 +14,7 @@ public class TB_P_ReplyVO {
 	private int purchase_seq;
 	private String pr_content;
 	private String pr_date;
-	private String pr_id;
+	private String user_id;
+	private String user_name;
 
 }

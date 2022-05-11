@@ -15,5 +15,6 @@ public class TB_PurchaseVO {
 	private String purchase_date;
 	private int purchase_cnt;
 	private String user_id;
+	private String user_name;
 
 }

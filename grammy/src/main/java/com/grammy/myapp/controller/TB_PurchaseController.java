@@ -10,6 +10,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
+import com.grammy.myapp.domain.TB_P_ReplyVO;
 import com.grammy.myapp.domain.TB_PurchaseVO;
 import com.grammy.myapp.service.TB_PurchaseService;
 
@@ -71,6 +72,45 @@ public class TB_PurchaseController {
 		
 		service.InsertPurchase(vo);
 		return "Success";
+	}
+	// 게시판 댓글 가져오기
+	@RequestMapping(value="/replylist.do",method=RequestMethod.POST)
+	public List<TB_P_ReplyVO> ReplyList(@RequestBody int purchase_seq)throws Exception{
+		List<TB_P_ReplyVO> list=service.ReplyList(purchase_seq);
+		if(list!=null) {
+		return list;
+		}else {
+			return null;
+		}
+	}
+	//댓글 작성하기
+	@RequestMapping(value="/replyinsert.do",method=RequestMethod.POST)
+	public String InsertReply(@RequestBody TB_P_ReplyVO vo) throws Exception{
+		service.InsertReply(vo);
+		
+		return "success";
+	}
+	
+	//댓글 삭제하기
+	@RequestMapping(value="/replydelete.do",method=RequestMethod.GET)
+	public String DelteReply(@RequestParam int pr_seq) throws Exception {
+		int result=service.DeleteRelpy(pr_seq);
+		if(result>0) {
+			return "success";
+		}else {
+			return "fail";
+		}
+	}
+	//댓글 수정하기
+	@RequestMapping(value="/replyupdate.do",method=RequestMethod.POST)
+	public String UpdateReply(@RequestBody TB_P_ReplyVO vo) throws Exception{
+		int result=service.UpdateReply(vo);
+		
+		if(result>0) {
+			return "success";
+		}else {
+			return "fail";
+		}
 	}
 
 }

@@ -14,6 +14,7 @@ public class TB_ReportVO {
 	private String report_date;
 	private char report_status;
 	private String user_id;
+	private String user_name;
 	private int report_cnt;
 	
 

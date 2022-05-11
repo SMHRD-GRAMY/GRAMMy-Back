@@ -57,4 +57,22 @@ public class TB_PurchaseServiceImpl implements TB_PurchaseService{
 		return mapper.ReplyList(purchase_seq);
 	}
 
+	@Override
+	public int UpdateReply(TB_P_ReplyVO vo) throws Exception {
+		
+		return mapper.UpdateReply(vo);
+	}
+
+	@Override
+	public int DeleteRelpy(int pr_seq) throws Exception {
+		
+		return mapper.DeleteRelpy(pr_seq);
+	}
+
+	@Override
+	public void InsertReply(TB_P_ReplyVO vo) throws Exception {
+		mapper.InsertReply(vo);
+		
+	}
+
 }

@@ -4,7 +4,7 @@
 
 <!-- 게시판 목록 -->
 <select id="AllList" resultType="com.grammy.myapp.domain.TB_PurchaseVO">
-	select purchase_seq,purchase_title,purchase_content,purchase_date,purchase_cnt,user_id from TB_purchase order by purchase_seq desc
+	select purchase_seq,purchase_title,purchase_content,purchase_date,purchase_cnt,user_id,user_name from TB_purchase order by purchase_seq desc
 </select>
 <!-- 게시판 상세내용 -->
 <select id="DetailContent" resultType="com.grammy.myapp.domain.TB_PurchaseVO" >
@@ -26,13 +26,15 @@ insert into TB_purchase(purchase_seq,
     purchase_content, 
     purchase_date, 
     purchase_cnt, 
-    user_id) values(
+    user_id,
+    user_name) values(
     tb_purchase_SEQ.nextval,
     #{purchase_title}, 
     #{purchase_content}, 
     sysdate, 
     1, 
-    #{user_id}
+    #{user_id},
+    #{user_name}
     ) 
 </insert>
 <!-- 조회수 증가 -->
@@ -42,7 +44,7 @@ update TB_purchase set purchase_cnt=purchase_cnt+1 where purchase_seq=#{purchase
 
 <!-- 댓글리스트 가져오기 -->
 <select id="ReplyList" parameterType="int" resultType="com.grammy.myapp.domain.TB_P_ReplyVO">
-select pr_seq,pr_content,pr_date,user_id from tb_p_reply where purchase_seq=#{purchase_seq}
+select pr_seq,pr_content,pr_date,user_id,user_name from tb_p_reply where purchase_seq=#{purchase_seq}
 </select>
 <!-- 댓글수정 -->
 <update id="UpdateReply" parameterType="com.grammy.myapp.domain.TB_P_ReplyVO">
@@ -50,7 +52,7 @@ update tb_p_reply set pr_content=#{pr_content} where pr_seq=#{pr_seq}
 </update>
 <!-- 댓글작성 -->
 <insert id="InsertReply" parameterType="com.grammy.myapp.domain.TB_P_ReplyVO">
-insert into tb_p_reply(pr_seq,purchase_seq,pr_content,pr_date,user_id) values(tb_p_reply_SEQ.nextval,#{purchase_seq},#{pr_content},sysdate,#{user_id})
+insert into tb_p_reply(pr_seq,purchase_seq,pr_content,pr_date,user_id,user_name) values(tb_p_reply_SEQ.nextval,#{purchase_seq},#{pr_content},sysdate,#{user_id},#{user_name})
 </insert>
 <!-- 댓글 삭제 -->
 <delete id="DeleteReply" parameterType="int">

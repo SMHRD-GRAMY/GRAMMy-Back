@@ -22,4 +22,10 @@ public interface TB_PurchaseService {
 	public void viewCount(int purchase_seq) throws Exception;
 	
 	public List<TB_P_ReplyVO> ReplyList(int purchase_seq) throws Exception;
+	
+	public int UpdateReply(TB_P_ReplyVO vo) throws Exception;
+
+	public int DeleteRelpy(int pr_seq) throws Exception;
+
+	public void InsertReply(TB_P_ReplyVO vo) throws Exception;
 }

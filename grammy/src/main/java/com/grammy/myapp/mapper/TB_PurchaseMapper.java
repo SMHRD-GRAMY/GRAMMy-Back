@@ -27,5 +27,10 @@ public interface TB_PurchaseMapper {
 	//댓글리스트 가져오기
 	public List<TB_P_ReplyVO> ReplyList(int purchase_seq);
 	//댓글 업데이트 수정
+	public int UpdateReply(TB_P_ReplyVO vo);
+	//댓글 삭제
+	public int DeleteRelpy(int pr_seq);
+	//댓글 작성
+	public void InsertReply(TB_P_ReplyVO vo);
 
 }
