@@ -3,6 +3,6 @@
 <mapper namespace="com.grammy.myapp.mapper.TB_PurchaseMapper">
 
 <select id="AllList" resultType="com.grammy.myapp.domain.TB_PurchaseVO">
-	select purchase_title,purchase_content,purchase_date,purchase_cnt,user_id from TB_purchase
+	select purchase_seq,purchase_title,purchase_content,purchase_date,purchase_cnt,user_id from TB_purchase
 </select>
 </mapper>
