@@ -44,7 +44,7 @@ update TB_purchase set purchase_cnt=purchase_cnt+1 where purchase_seq=#{purchase
 
 <!-- 댓글리스트 가져오기 -->
 <select id="ReplyList" parameterType="int" resultType="com.grammy.myapp.domain.TB_P_ReplyVO">
-select pr_seq,pr_content,pr_date,user_id,user_name from tb_p_reply where purchase_seq=#{purchase_seq}
+select pr_seq,pr_content,pr_date,user_id,user_name from tb_p_reply where purchase_seq=#{purchase_seq} order by pr_seq desc
 </select>
 <!-- 댓글수정 -->
 <update id="UpdateReply" parameterType="com.grammy.myapp.domain.TB_P_ReplyVO">

@@ -13,34 +13,8 @@ DROP TABLE tb_reply CASCADE CONSTRAINTS;
 
 drop trigger TB_USER_AI_TRG;
 
-INSERT INTO tb_purchase
-    (purchase_seq,
-    purchase_title, 
-    purchase_content, 
-    purchase_date, 
-    purchase_cnt, 
-    user_id)
-VALUES
-    (tb_purchase_SEQ.nextval,
-    'purchase_title 1', 
-    'purchase_content 1', 
-    sysdate, 
-    1, 
-    'user_id 1');
-    INSERT INTO tb_purchase
-    (purchase_seq,
-    purchase_title, 
-    purchase_content, 
-    purchase_date, 
-    purchase_cnt, 
-    user_id)
-VALUES
-    (tb_purchase_SEQ.nextval,
-    'purchase_title 2', 
-    'purchase_content 2', 
-    sysdate, 
-    1, 
-    'user_id 1');
+insert into tb_p_reply(pr_seq,purchase_seq,pr_content,pr_date,user_id,user_name) values(tb_p_reply_SEQ.nextval,60,1,sysdate,1,1)
+insert into tb_p_reply(pr_seq,purchase_seq,pr_content,pr_date,user_id,user_name) values(tb_p_reply_SEQ.nextval,60,2,sysdate,2,2)
 
 
 
