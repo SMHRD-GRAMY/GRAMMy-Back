@@ -149,12 +149,13 @@ ALTER TABLE tb_stock
 -- tb_purchase Table Create SQL
 CREATE TABLE tb_purchase
 (
-    purchase_seq        NUMBER(12, 0)     NOT NULL, 
-    purchase_title      VARCHAR2(200)     NOT NULL, 
-    purchase_content    VARCHAR2(4000)    NOT NULL, 
-    purchase_date       DATE              NOT NULL, 
-    purchase_cnt        NUMBER(12, 0)     NOT NULL, 
-    user_id             VARCHAR2(30)      NOT NULL, 
+    purchase_seq        NUMBER(12, 0)      NOT NULL, 
+    purchase_title      VARCHAR2(200)      NOT NULL, 
+    purchase_content    VARCHAR2(20000)    NOT NULL, 
+    purchase_date       DATE               NOT NULL, 
+    purchase_cnt        NUMBER(12, 0)      NOT NULL, 
+    user_id             VARCHAR2(30)       NOT NULL, 
+    user_name           VARCHAR2(30)       NOT NULL, 
      PRIMARY KEY (purchase_seq)
 )
 /
@@ -185,13 +186,14 @@ ALTER TABLE tb_purchase
 -- tb_report Table Create SQL
 CREATE TABLE tb_report
 (
-    report_seq        NUMBER(12, 0)     NOT NULL, 
-    report_title      VARCHAR2(200)     NOT NULL, 
-    report_content    VARCHAR2(4000)    NOT NULL, 
-    report_date       DATE              NOT NULL, 
-    report_status     CHAR(1)           NOT NULL, 
-    user_id           VARCHAR2(30)      NOT NULL,
-    report_cnt		  NUMBER(12,0)		NOT NULL,
+    report_seq        NUMBER(12, 0)      NOT NULL, 
+    report_title      VARCHAR2(200)      NOT NULL, 
+    report_content    VARCHAR2(20000)    NOT NULL, 
+    report_date       DATE               NOT NULL, 
+    report_status     CHAR(1)            NOT NULL, 
+    user_id           VARCHAR2(30)       NOT NULL, 
+    report_cnt        NUMBER(12, 0)      NOT NULL, 
+    user_name         VARCHAR2(30)       NOT NULL, 
      PRIMARY KEY (report_seq)
 )
 /
@@ -227,6 +229,7 @@ CREATE TABLE tb_reply
     reply_content    VARCHAR2(4000)    NOT NULL, 
     reply_date       DATE              NOT NULL, 
     user_id          VARCHAR2(30)      NOT NULL, 
+    user_name        VARCHAR2(30)      NOT NULL, 
      PRIMARY KEY (reply_seq)
 )
 /
@@ -267,6 +270,7 @@ CREATE TABLE tb_p_reply
     pr_content      VARCHAR2(4000)    NOT NULL, 
     pr_date         DATE              NOT NULL, 
     user_id         VARCHAR2(30)      NOT NULL, 
+    user_name       VARCHAR2(30)      NOT NULL, 
      PRIMARY KEY (pr_seq)
 )
 /

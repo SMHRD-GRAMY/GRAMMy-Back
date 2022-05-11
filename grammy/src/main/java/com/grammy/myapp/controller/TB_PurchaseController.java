@@ -23,9 +23,14 @@ public class TB_PurchaseController {
 	// 게시판리스트
 	@RequestMapping("/list.do")
 	public List<TB_PurchaseVO> AllList() throws Exception{
-		List<TB_PurchaseVO> list=service.AllList();
 		
-		return list;
+		List<TB_PurchaseVO> list=service.AllList();
+		if(list!=null) {
+			return list;
+		}else {
+			return null;
+		}
+		
 	}
 	
 	//게시판 상세내용
