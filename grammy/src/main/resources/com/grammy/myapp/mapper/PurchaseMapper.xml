@@ -8,7 +8,7 @@
 </select>
 <!-- 게시판 상세내용 -->
 <select id="DetailContent" resultType="com.grammy.myapp.domain.TB_PurchaseVO" >
-	select * from TB_purchase where pruchase_seq =#{purchase_seq}
+	select * from TB_purchase where purchase_seq =#{purchase_seq}
 </select>
 
 <!-- 게시판 삭제 -->
