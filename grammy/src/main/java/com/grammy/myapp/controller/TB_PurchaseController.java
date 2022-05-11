@@ -7,6 +7,7 @@ import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.grammy.myapp.domain.TB_PurchaseVO;
@@ -35,8 +36,8 @@ public class TB_PurchaseController {
 		return service.DetaliContent(purchase_seq);
 	}
 	//게시판 삭제
-	@RequestMapping(value="/delete.do",method = RequestMethod.POST)
-	public String Delete(@RequestBody int purchase_seq) throws Exception{
+	@RequestMapping(value="/delete.do",method = RequestMethod.GET)
+	public String Delete(@RequestParam int purchase_seq) throws Exception{
 		int result=service.DeletePurchase(purchase_seq);
 		if(result>0) {
 		return "Success";
