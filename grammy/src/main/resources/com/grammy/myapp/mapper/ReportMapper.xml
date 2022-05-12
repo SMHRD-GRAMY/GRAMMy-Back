@@ -24,7 +24,7 @@ insert into TB_report(report_seq,
     report_title, 
     report_content, 
     report_date,
-    report_stauts, 
+    report_status, 
     user_id,
     report_cnt,
     user_name) values(
