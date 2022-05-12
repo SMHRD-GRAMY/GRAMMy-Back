@@ -53,7 +53,7 @@ update tb_reply set reply_content=#{reply_content} where reply_seq=#{reply_seq}
 </update>
 <!-- 댓글작성 -->
 <insert id="InsertReply" parameterType="com.grammy.myapp.domain.TB_ReplyVO">
-insert into tb_reply(reply_seq,report_seq,reply_content,reply_date,user_id,user_name) values(tb_reply_SEQ.nextval,#{report_seq},#{report_content},sysdate,#{user_id},#{user_name})
+insert into tb_reply(reply_seq,report_seq,reply_content,reply_date,user_id,user_name) values(tb_reply_SEQ.nextval,#{report_seq},#{reply_content},sysdate,#{user_id},#{user_name})
 </insert>
 <!-- 댓글 삭제 -->
 <delete id="DeleteReply" parameterType="int">
