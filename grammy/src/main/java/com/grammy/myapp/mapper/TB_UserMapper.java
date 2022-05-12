@@ -22,5 +22,5 @@ public interface TB_UserMapper {
 	public int idCheck(String userId);
 	
 	//아이디로 유저 정보가져오기
-	public TB_UserVO selectOneList(String user_id);
+	public TB_UserVO selectOneList(TB_UserVO vo);
 }

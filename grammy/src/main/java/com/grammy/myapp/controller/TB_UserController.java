@@ -127,10 +127,10 @@ public class TB_UserController {
     
     //아이디로 회원정보가져오기
     @RequestMapping(value="/selectOne.do",method = RequestMethod.POST)
-    public TB_UserVO selectOnelist(@RequestBody String user_id) throws Exception{
-    	System.out.println(user_id);
-    	TB_UserVO vo=service.selectOneList(user_id);
+    public TB_UserVO selectOnelist(@RequestBody TB_UserVO  vo) throws Exception{
     	System.out.println(vo);
+    	TB_UserVO vo1=service.selectOneList(vo);
+    	System.out.println(vo1);
     	if(vo!=null) {
     	return vo;
     	}else {
