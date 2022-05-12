@@ -132,7 +132,7 @@ public class TB_UserController {
     	TB_UserVO vo1=service.selectOneList(vo);
     	System.out.println(vo1);
     	if(vo!=null) {
-    	return vo;
+    	return vo1;
     	}else {
     		return null;
     	}
