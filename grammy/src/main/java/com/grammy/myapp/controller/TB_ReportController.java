@@ -28,7 +28,11 @@ public class TB_ReportController {
 	public List<TB_ReportVO> AllList() throws Exception{
 		List<TB_ReportVO> list=service.AllList();
 		
-		return list;
+		if(list!=null) {
+			return list;
+		}else {
+			return null;
+		}
 	}
 	
 	//게시판 상세내용
@@ -72,7 +76,7 @@ public class TB_ReportController {
 	public List<TB_ReplyVO> ReplyList(@RequestBody int report_seq)throws Exception{
 		List<TB_ReplyVO> list=service.ReplyList(report_seq);
 		if(list!=null) {
-		return list;
+			return list;
 		}else {
 			return null;
 		}

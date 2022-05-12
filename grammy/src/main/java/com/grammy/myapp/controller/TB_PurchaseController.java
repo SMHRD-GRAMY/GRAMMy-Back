@@ -35,7 +35,7 @@ public class TB_PurchaseController {
 	}
 	
 	//게시판 상세내용
-	@RequestMapping(value="/content.do",method = RequestMethod.POST)
+	@RequestMapping(value="/content.do", method = RequestMethod.POST)
 	public TB_PurchaseVO DetailContent(@RequestBody int purchase_seq) throws Exception{
 		System.out.println(purchase_seq);
 		service.viewCount(purchase_seq);

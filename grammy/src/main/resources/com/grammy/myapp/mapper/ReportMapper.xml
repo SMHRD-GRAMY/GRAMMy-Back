@@ -7,12 +7,12 @@
 </select>
 <!-- 게시판 상세내용 -->
 <select id="DetailContent" resultType="com.grammy.myapp.domain.TB_ReportVO" >
-	select * from TB_reprot where report_seq =#{report_seq}
+	select * from TB_report where report_seq=#{report_seq}
 </select>
 
 <!-- 게시판 삭제 -->
 <delete id="DeleteReport" parameterType="int">
-	delete from TB_Reprot where report_seq=#{report_seq}
+	delete from TB_Report where report_seq=#{report_seq}
 </delete>
 <!-- 게시판 업데이트 -->
 <update id="UpdateReport" parameterType="com.grammy.myapp.domain.TB_ReportVO">
@@ -45,7 +45,7 @@ update TB_report set report_cnt=report_cnt+1 where report_seq=#{report_seq}
 
 <!-- 댓글리스트 가져오기 -->
 <select id="ReplyList" parameterType="int" resultType="com.grammy.myapp.domain.TB_ReplyVO">
-select reply_seq,report_seq,reply_content,reply_date,user_id,user_name from tb_p_reply where report_seq=#{report_seq} order by reply_seq desc
+select reply_seq,report_seq,reply_content,reply_date,user_id,user_name from tb_reply where report_seq=#{report_seq} order by reply_seq desc
 </select>
 <!-- 댓글수정 -->
 <update id="UpdateReply" parameterType="com.grammy.myapp.domain.TB_ReplyVO">
