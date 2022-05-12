@@ -40,4 +40,10 @@ public class TB_UserServiceImpl implements TB_UserService{
 		return mapper.selectOneList(vo);
 	}
 
+	@Override
+	public TB_UserVO updateUser(TB_UserVO vo) throws Exception {
+		
+		return mapper.updateUser(vo);
+	}
+
 }

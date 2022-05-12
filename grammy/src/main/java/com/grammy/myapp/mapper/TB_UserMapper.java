@@ -26,4 +26,5 @@ public interface TB_UserMapper {
 	
 	//회원 정보 수정하기
 	public TB_UserVO updateUser(TB_UserVO vo);
+	
 }

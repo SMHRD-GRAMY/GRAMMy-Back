@@ -17,5 +17,6 @@ public interface TB_UserService {
 	
 	public TB_UserVO selectOneList(TB_UserVO vo) throws Exception;
 	
+	public TB_UserVO updateUser(TB_UserVO vo) throws Exception;
 
 }

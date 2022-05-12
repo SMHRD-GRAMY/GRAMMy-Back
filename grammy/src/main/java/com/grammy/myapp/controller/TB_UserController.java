@@ -131,6 +131,21 @@ public class TB_UserController {
     		return null;
     	}	
     }
+    // 회원정보 업데이트
+    @RequestMapping(value="/updateUser.do",method=RequestMethod.POST)
+    public String updateUser(@RequestBody TB_UserVO vo) throws Exception{
+    	System.out.println(vo);
+    	TB_UserVO vo1=service.updateUser(vo);
+    	System.out.println(vo1);
+    	if(vo1!=null) {
+    		return "success";
+    	}
+    else {
+    	return "fail";
+    	}
+    }
+    
+    
     // 안드로이드로그인
     @PostMapping("/androidlogin.do")
     public TB_UserVO androidlogin(TB_UserVO user) throws Exception{
@@ -142,6 +157,7 @@ public class TB_UserController {
         }
         return member;
     }
+    //안드로이드 회원가입
     @PostMapping("/androidjoin.do")
     public String androidjoin(TB_UserVO user) throws Exception{
     	
@@ -154,6 +170,7 @@ public class TB_UserController {
     	
     	return "success";
     }
+
     
     
 

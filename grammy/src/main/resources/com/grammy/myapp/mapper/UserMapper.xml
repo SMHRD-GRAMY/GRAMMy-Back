@@ -15,4 +15,7 @@
 	<select id="selectOneList" resultType="com.grammy.myapp.domain.TB_UserVO">
 	select * from TB_User where user_id=#{user_id}
 	</select>
+	<update id="updateUser" parameterType="com.grammy.myapp.domain.TB_UserVO">
+	update tb_user set user_pw=#{user_pw},user_phone=#{user_phone},user_addr=#{user_addr},user_name=#{user_name},user_gender=#{user_gender} where user_id=#{user_id}
+	</update>
 </mapper>
