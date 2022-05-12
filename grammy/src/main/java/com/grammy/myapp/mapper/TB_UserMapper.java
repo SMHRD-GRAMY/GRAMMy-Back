@@ -23,4 +23,7 @@ public interface TB_UserMapper {
 	
 	//아이디로 유저 정보가져오기
 	public TB_UserVO selectOneList(TB_UserVO vo);
+	
+	//회원 정보 수정하기
+	public TB_UserVO updateUser(TB_UserVO vo);
 }
