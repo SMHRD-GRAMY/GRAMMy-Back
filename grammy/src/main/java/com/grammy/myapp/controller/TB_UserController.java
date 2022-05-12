@@ -35,6 +35,7 @@ import com.grammy.myapp.domain.User;
 import com.grammy.myapp.repository.UserRepository;
 import com.grammy.myapp.service.TB_UserService;
 
+import ch.qos.logback.core.recovery.ResilientSyslogOutputStream;
 import lombok.RequiredArgsConstructor;
 
 @RequiredArgsConstructor
@@ -120,18 +121,20 @@ public class TB_UserController {
         String user_id=member.getUserId();
         Auth auth=new Auth(token,user_id,user_name);
         String result = gson.toJson(auth);
-        
+        System.out.println(result);
         return result;
     }
     
     //아이디로 회원정보가져오기
     @RequestMapping(value="/selectOne.do",method = RequestMethod.POST)
-    public String selectOnelist(@RequestBody String user_id) throws Exception{
+    public TB_UserVO selectOnelist(@RequestBody String user_id) throws Exception{
+    	System.out.println(user_id);
     	TB_UserVO vo=service.selectOneList(user_id);
+    	System.out.println(vo);
     	if(vo!=null) {
-    	return "success";
+    	return vo;
     	}else {
-    		return "fail";
+    		return null;
     	}
     			
     	
