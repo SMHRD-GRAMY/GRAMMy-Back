@@ -124,5 +124,19 @@ public class TB_UserController {
         return result;
     }
     
+    //아이디로 회원정보가져오기
+    @RequestMapping(value="/selectOne.do",method = RequestMethod.POST)
+    public String selectOnelist(@RequestBody String user_id) throws Exception{
+    	TB_UserVO vo=service.selectOneList(user_id);
+    	if(vo!=null) {
+    	return "success";
+    	}else {
+    		return "fail";
+    	}
+    			
+    	
+    }
+    
+    
 
 }

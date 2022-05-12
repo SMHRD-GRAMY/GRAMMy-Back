@@ -20,4 +20,7 @@ public interface TB_UserMapper {
 
 	//아이디 중복검사
 	public int idCheck(String userId);
+	
+	//아이디로 유저 정보가져오기
+	public TB_UserVO selectOneList(String user_id);
 }

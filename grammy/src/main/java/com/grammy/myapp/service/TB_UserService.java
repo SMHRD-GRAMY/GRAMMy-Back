@@ -15,5 +15,7 @@ public interface TB_UserService {
 	
 	public int idCheck(String userId) throws Exception;
 	
+	public TB_UserVO selectOneList(String user_id) throws Exception;
+	
 
 }

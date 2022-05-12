@@ -34,4 +34,10 @@ public class TB_UserServiceImpl implements TB_UserService{
 		return mapper.idCheck(userId);
 	}
 
+	@Override
+	public TB_UserVO selectOneList(String user_id) throws Exception {
+		
+		return mapper.selectOneList(user_id);
+	}
+
 }

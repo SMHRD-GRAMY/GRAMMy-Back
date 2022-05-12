@@ -14,5 +14,11 @@ public class TB_StockController {
     	System.out.println(value);
     	
     }
+    @RequestMapping(value="/register", method=RequestMethod.POST)
+    public String StockRegister(){
+    	
+    	return "";
+    	
+    }
 
 }
