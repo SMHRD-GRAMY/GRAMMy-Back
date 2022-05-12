@@ -12,6 +12,7 @@
 	insert into tb_user(user_seq,user_id,user_pw,user_phone,user_addr,user_role,user_joindate,user_name,user_gender) 
 	values (tb_user_SEQ.nextval,#{user_id},#{user_pw},#{user_phone},#{user_addr},'user',sysdate,#{user_name},#{user_gender})
 	</insert>
-	
-
+	<select id="selectOneList" resultType="com.grammy.myapp.domain.TB_UserVO">
+	select * from TB_User where user_id=#{user_id}
+	</select>
 </mapper>
