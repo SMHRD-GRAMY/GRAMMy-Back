@@ -69,17 +69,11 @@ public class TB_UserController {
 	public String joinPOST(@RequestBody TB_UserVO user){
 		System.out.println(user);
 		try {		
-
-//			String jsonStr=gson.toJson(param);
-//			TB_UserVO user=gson.fromJson(jsonStr,TB_UserVO.class);
 			
 			String rawPassword=user.getUser_pw();
 			String encPassword=passwordEncoder.encode(rawPassword);
 			user.setUser_pw(encPassword);
-//			user.setUser_joindate(format1.format(time));
-//			user.setAdmin_yn('N');
-			System.out.println(user);
-//			repository.save(user); //회원가입 
+			System.out.println(user); 
 			service.userJoin(user);
 			return "success";		
 			}
@@ -135,9 +129,30 @@ public class TB_UserController {
     	return vo1;
     	}else {
     		return null;
-    	}
-    			
+    	}	
+    }
+    // 안드로이드로그인
+    @PostMapping("/androidlogin.do")
+    public TB_UserVO androidlogin(TB_UserVO user) throws Exception{
+    	System.out.println(user);
+    	TB_UserVO member=service.selectOneList(user);
+    	System.out.println(member);
+        if (!passwordEncoder.matches(user.getUser_pw(), member.getUser_pw())) {
+            throw new IllegalArgumentException("잘못된 비밀번호입니다.");
+        }
+        return member;
+    }
+    @PostMapping("/androidjoin.do")
+    public String androidjoin(TB_UserVO user) throws Exception{
     	
+    	
+		String rawPassword=user.getUser_pw();
+		String encPassword=passwordEncoder.encode(rawPassword);
+		user.setUser_pw(encPassword);
+		System.out.println(user); 
+    	service.userJoin(user);
+    	
+    	return "success";
     }
     
     
