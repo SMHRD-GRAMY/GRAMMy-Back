@@ -132,12 +132,20 @@ public class TB_UserController {
     	TB_UserVO vo1=service.selectOneList(vo);
     	System.out.println(vo1);
     	if(vo!=null) {
-    	return vo;
+    	return vo1;
     	}else {
     		return null;
-    	}
-    			
-    	
+    	}	
+    }
+    // 안드로이드로그인
+    @PostMapping("/androidlogin.do")
+    public String androidlogin(TB_UserVO user) throws Exception{
+    	System.out.println(user);
+    	TB_UserVO member=service.selectOneList(user);
+        if (!passwordEncoder.matches(user.getUser_pw(), member.getUser_pw())) {
+            throw new IllegalArgumentException("잘못된 비밀번호입니다.");
+        }
+        return "success";
     }
     
     
