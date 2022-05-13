@@ -13,6 +13,8 @@ DROP TABLE tb_reply CASCADE CONSTRAINTS;
 
 drop trigger TB_USER_AI_TRG;
 
+select * from tb_pruchase a full outer join tb_report b on a.user_id= b.user_id;
+
 insert into tb_p_reply(pr_seq,purchase_seq,pr_content,pr_date,user_id,user_name) values(tb_p_reply_SEQ.nextval,60,1,sysdate,1,1)
 insert into tb_p_reply(pr_seq,purchase_seq,pr_content,pr_date,user_id,user_name) values(tb_p_reply_SEQ.nextval,60,2,sysdate,2,2)
 
@@ -310,4 +312,46 @@ ALTER TABLE tb_stock_weight
 /
 
 
+CREATE TABLE tb_app_board
+(
+    tb_a_seq        NUMBER(12, 0)     NOT NULL, 
+    tb_a_title      VARCHAR2(200)     NOT NULL, 
+    tb_a_content    VARCHAR2(4000)    NOT NULL, 
+    tb_a_date       DATE              NOT NULL, 
+    user_id         VARCHAR2(30)      NOT NULL, 
+    user_name       VARCHAR2(30)      NOT NULL, 
+     PRIMARY KEY (tb_a_seq)
+)
+/
 
+CREATE SEQUENCE tb_app_board_SEQ
+START WITH 1
+INCREMENT BY 1;
+
+INSERT INTO tb_app_board (tb_a_seq,tb_a_title, tb_a_content, tb_a_date, user_id, user_name) VALUES (tb_app_board_SEQ.nextval,'tb_a_title 1', 'tb_a_content 1', sysdate, 'user_id 1', 'user_name 1');
+INSERT INTO tb_app_board (tb_a_seq,tb_a_title, tb_a_content, tb_a_date, user_id, user_name) VALUES (tb_app_board_SEQ.nextval,'tb_a_title 2', 'tb_a_content 2', sysdate, 'user_id 2', 'user_name 2');
+INSERT INTO tb_app_board (tb_a_seq,tb_a_title, tb_a_content, tb_a_date, user_id, user_name) VALUES (tb_app_board_SEQ.nextval,'tb_a_title 3', 'tb_a_content 3', sysdate, 'user_id 3', 'user_name 3');
+INSERT INTO tb_app_board (tb_a_seq,tb_a_title, tb_a_content, tb_a_date, user_id, user_name) VALUES (tb_app_board_SEQ.nextval,'tb_a_title 4', 'tb_a_content 4', sysdate, 'user_id 4', 'user_name 4');
+INSERT INTO tb_app_board (tb_a_seq,tb_a_title, tb_a_content, tb_a_date, user_id, user_name) VALUES (tb_app_board_SEQ.nextval,'tb_a_title 5', 'tb_a_content 5', sysdate, 'user_id 5', 'user_name 5');
+
+CREATE TABLE tb_a_reply
+(
+    ar_seq        NUMBER(12, 0)    NOT NULL, 
+    tb_a_seq      NUMBER(12, 0)    NOT NULL, 
+    ar_content    VARCHAR2(30)     NOT NULL, 
+    user_id       VARCHAR2(30)     NOT NULL, 
+    user_name     VARCHAR2(200)    NOT NULL, 
+    ar_date       DATE             NOT NULL, 
+     PRIMARY KEY (ar_seq)
+)
+/
+
+CREATE SEQUENCE tb_a_reply_SEQ
+START WITH 1
+INCREMENT BY 1;
+
+INSERT INTO tb_a_reply (ar_seq, tb_a_seq, ar_content, user_id, user_name, ar_date) VALUES (tb_a_reply_SEQ.nextval,1, 'ar_content 1', 'user_id 1', 'user_name 1', sysdate);
+INSERT INTO tb_a_reply (ar_seq, tb_a_seq, ar_content, user_id, user_name, ar_date) VALUES (tb_a_reply_SEQ.nextval,2, 'ar_content 2', 'user_id 2', 'user_name 2', sysdate);
+INSERT INTO tb_a_reply (ar_seq, tb_a_seq, ar_content, user_id, user_name, ar_date) VALUES (tb_a_reply_SEQ.nextval,3, 'ar_content 3', 'user_id 3', 'user_name 3', sysdate);
+INSERT INTO tb_a_reply (ar_seq, tb_a_seq, ar_content, user_id, user_name, ar_date) VALUES (tb_a_reply_SEQ.nextval,4, 'ar_content 4', 'user_id 4', 'user_name 4', sysdate);
+INSERT INTO tb_a_reply (ar_seq, tb_a_seq, ar_content, user_id, user_name, ar_date) VALUES (tb_a_reply_SEQ.nextval,5, 'ar_content 5', 'user_id 5', 'user_name 5', sysdate);
