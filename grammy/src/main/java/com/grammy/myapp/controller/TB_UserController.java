@@ -178,6 +178,7 @@ public class TB_UserController {
     @PostMapping("/androidupdate.do")
     public String androidupdate(TB_UserVO vo) throws Exception{
     	
+    	// 비밀번호 암호화 추가
     	String rawPassword=vo.getUser_pw();
 		String encPassword=passwordEncoder.encode(rawPassword);
 		vo.setUser_pw(encPassword);
