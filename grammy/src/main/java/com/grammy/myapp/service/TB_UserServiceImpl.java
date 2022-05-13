@@ -41,7 +41,7 @@ public class TB_UserServiceImpl implements TB_UserService{
 	}
 
 	@Override
-	public TB_UserVO updateUser(TB_UserVO vo) throws Exception {
+	public int updateUser(TB_UserVO vo) throws Exception {
 		
 		return mapper.updateUser(vo);
 	}

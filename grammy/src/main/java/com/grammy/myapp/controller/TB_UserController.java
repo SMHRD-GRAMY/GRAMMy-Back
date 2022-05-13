@@ -135,9 +135,13 @@ public class TB_UserController {
     @RequestMapping(value="/updateUser.do",method=RequestMethod.POST)
     public String updateUser(@RequestBody TB_UserVO vo) throws Exception{
     	System.out.println(vo);
-    	TB_UserVO vo1=service.updateUser(vo);
+    	String rawPassword=vo.getUser_pw();
+		String encPassword=passwordEncoder.encode(rawPassword);
+		vo.setUser_pw(encPassword);
+    	int vo1=service.updateUser(vo);
+    	
     	System.out.println(vo1);
-    	if(vo1!=null) {
+    	if(vo1 >= 1) {
     		return "success";
     	}
     else {
