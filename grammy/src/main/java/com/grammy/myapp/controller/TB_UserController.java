@@ -174,6 +174,24 @@ public class TB_UserController {
     	
     	return "success";
     }
+    //안드로이드 회원수정
+    @PostMapping("/androidupdate.do")
+    public String androidupdate(TB_UserVO vo) throws Exception{
+    	
+    	String rawPassword=vo.getUser_pw();
+		String encPassword=passwordEncoder.encode(rawPassword);
+		vo.setUser_pw(encPassword);
+    	int vo1=service.updateUser(vo);
+    	
+    	System.out.println(vo1);
+    	if(vo1 >= 1) {
+    		return "success";
+    	}
+    else {
+    	return "fail";
+    	}
+    	
+    }
 
     
     
