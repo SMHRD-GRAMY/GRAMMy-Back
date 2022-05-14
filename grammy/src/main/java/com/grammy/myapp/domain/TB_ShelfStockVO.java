@@ -1,6 +1,7 @@
 package com.grammy.myapp.domain;
 
 
+
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
@@ -8,14 +9,11 @@ import lombok.NoArgsConstructor;
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
-public class TB_StockVO {
+public class TB_ShelfStockVO {
+	private int shelf_seq;
+	private String shelf_name;
+	private String user_id; 
 	private int stock_seq;
 	private String stock_name;
-	private double stock_weight;
-	private String stock_date;
-	private String stock_shelfLife;
-	private int shelf_seq;
-	private String stock_order;
-	
 
 }

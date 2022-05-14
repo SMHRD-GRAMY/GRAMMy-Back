@@ -10,49 +10,71 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
+import com.grammy.myapp.domain.TB_ShelfStockVO;
 import com.grammy.myapp.domain.TB_ShelfVO;
 import com.grammy.myapp.domain.TB_StockVO;
+import com.grammy.myapp.domain.TB_Stock_WeightVO;
 import com.grammy.myapp.service.TB_ProductService;
 
 @RestController
-@CrossOrigin(origins="*")
+@CrossOrigin(origins = "*")
 @RequestMapping("/product")
 public class TB_ProductController {
 	@Autowired
 	TB_ProductService service;
-	
-	//선반 리스트 가져오기
-    @RequestMapping(value="/shelflist",method=RequestMethod.POST)
-    public List<TB_ShelfVO> shelfList(TB_ShelfVO vo){
-    	return service.shelfList(vo);
-    }
-    //선반 추가하기
-    @RequestMapping(value="/insertshelf",method=RequestMethod.POST)
-    public String insertShelf(TB_ShelfVO vo) {
-    	int result=service.insertShelf(vo);
-    	if(result>0) {
-    		return "success";
-    	}else {
-    		return "fail";
-    	}
-    	
-    }
-    
-	
-	@RequestMapping(value="/weight", method=RequestMethod.POST)
-    public void hardware(TB_StockVO vo) {
-    	System.out.println(vo);
-    	
-    }
-    @RequestMapping(value="/register", method=RequestMethod.POST)
-    public String StockRegister(){
-    	
-    	return "";
-    	
-    }
+	//초기에 버튼 클릭시 선반과 물품 가져오기 user_id를 매개변수로 받아올때
+	@RequestMapping(value="/stocklist",method=RequestMethod.POST)
+	public List<TB_ShelfStockVO> stockList(TB_ShelfStockVO vo){
+		
+		return service.stockList(vo);
+	}
+	//선반 선택 클릭시 선반과 물품 가져오기 shelf_seq를 매개변수로 받아올때
+	@RequestMapping(value="/returnlist",method=RequestMethod.POST)
+	public List<TB_ShelfStockVO> returnStockList(TB_ShelfStockVO vo){
+		
+		return service.returnShelfList(vo);
+	}
 
-    
+	// 선반 선택란 클릭시 선반 리스트 가져오기
+	@RequestMapping(value = "/shelflist", method = RequestMethod.POST)
+	public List<TB_ShelfVO> shelfList(TB_ShelfVO vo) {
+		return service.shelfList(vo);
+	}
 
-    
+	// 선반 추가하기
+	@RequestMapping(value = "/insertshelf", method = RequestMethod.POST)
+	public String insertShelf(TB_ShelfVO vo) {
+		int result = service.insertShelf(vo);
+		if (result > 0) {
+			return "success";
+		} else {
+			return "fail";
+		}
+
+	}
+
+	// 제품 초기 이름 무게 설정하기
+	@RequestMapping(value = "/insertstock", method = RequestMethod.POST)
+	public String insertStock(TB_StockVO vo) {
+		System.out.println(vo);
+		int result = service.insertStock(vo);
+		if (result > 0) {
+			return "success";
+		} else {
+			return "fail";
+		}
+	}
+
+	//무게테이블에 무게 추가하기
+	@RequestMapping(value = "/insertweight", method = RequestMethod.POST)
+	public String insertWeight(TB_Stock_WeightVO vo) {
+		System.out.println(vo);
+		int result = service.insertWeight(vo);
+		if (result > 0) {
+			return "success";
+		} else {
+			return "fail";
+		}
+	}
 
 }
