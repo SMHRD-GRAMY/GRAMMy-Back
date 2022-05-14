@@ -7,7 +7,7 @@ select * from tb_app_board order by tb_a_seq desc
 </select>
 <!-- 자유게시판 추가하기 -->
 <insert id="insertBoard" parameterType="com.grammy.myapp.domain.TB_App_BoardVO">
-INSERT INTO tb_app_board (tb_a_seq,tb_a_title, tb_a_content, tb_a_date, user_id, user_name) VALUES (tb_app_board_SEQ.nextval,#{tb_a_title},#{tb_a_content}', sysdate,#{user_id},#{user_name});
+INSERT INTO tb_app_board (tb_a_seq, tb_a_title, tb_a_content, tb_a_date, user_id, user_name) VALUES (tb_app_board_SEQ.nextval, #{tb_a_title}, #{tb_a_content}, sysdate, #{user_id}, #{user_name})
 </insert>
 <!-- 자유게시판 삭제하기 -->
 <delete id="deleteBoard" parameterType="com.grammy.myapp.domain.TB_App_BoardVO">
