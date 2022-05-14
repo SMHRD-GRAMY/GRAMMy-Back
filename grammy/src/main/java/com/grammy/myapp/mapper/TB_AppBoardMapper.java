@@ -21,11 +21,4 @@ public interface TB_AppBoardMapper {
 	//게시판 상세보기
 	public TB_App_BoardVO detailBoard(TB_App_BoardVO vo);
 	
-	
-	
-	//선반(창고) 등록하기
-	public int insertShelf();
-	//선반(창고) 리스트 가져오기
-	public List<TB_ShelfVO> shelfList();
-
 }

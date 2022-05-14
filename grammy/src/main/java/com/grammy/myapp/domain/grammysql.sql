@@ -1,6 +1,7 @@
 select * from tb_user;
 delete from tb_user;
 select * from TB_PURCHASE;
+select * from TB_STOCK;
 
 DROP TABLE tb_user CASCADE CONSTRAINTS;
 DROP TABLE tb_shelf CASCADE CONSTRAINTS;
@@ -97,12 +98,13 @@ ALTER TABLE tb_shelf
 -- tb_stock Table Create SQL
 CREATE TABLE tb_stock
 (
-    stock_seq       NUMBER(12, 0)    NOT NULL, 
-    hw_uid          VARCHAR2(30)     NOT NULL, 
+    stock_seq       NUMBER(12, 0)    NOT NULL,  
     stock_name      VARCHAR2(30)     NOT NULL, 
-    stock_date      DATE             NOT NULL, 
     stock_weight    NUMBER(12, 1)    NOT NULL, 
+    stock_date      DATE             NOT NULL, 
+    stock_shelfLife VARCHAR2(30)     NOT NULL,
     shelf_seq       NUMBER(12, 0)    NOT NULL, 
+    stock_order     VARCHAR2(30)     NOT NULL, 
      PRIMARY KEY (stock_seq)
 )
 /
