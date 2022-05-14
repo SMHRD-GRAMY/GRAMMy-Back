@@ -38,4 +38,10 @@ public class TB_AppBoardServiceImpl implements TB_AppBoardService{
 		return mapper.updateBoard(vo);
 	}
 
+	@Override
+	public TB_App_BoardVO detailBoard(TB_App_BoardVO vo) {
+		
+		return mapper.detailBoard(vo);
+	}
+
 }

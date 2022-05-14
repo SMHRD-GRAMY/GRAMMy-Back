@@ -13,5 +13,7 @@ public interface TB_AppBoardService {
 	public int deleteBoard(TB_App_BoardVO vo);
 	
 	public int updateBoard(TB_App_BoardVO vo);
+	
+	public TB_App_BoardVO detailBoard(TB_App_BoardVO vo);
 
 }

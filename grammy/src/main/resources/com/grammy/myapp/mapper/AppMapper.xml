@@ -17,5 +17,9 @@ delete from tb_app_board where tb_a_seq=#{tb_a_seq}
 <update id="updateBoard" parameterType="com.grammy.myapp.domain.TB_App_BoardVO">
 update tb_app_board set tb_a_title=#{tb_a_title}, tb_a_content=#{tb_a_content} where tb_a_seq=#{tb_a_seq}
 </update>
+<!-- 자유게시판 상세보기 -->
+<select id="detailBoard" parameterType="com.grammy.myapp.domain.TB_App_BoardVO">
+select * from tb_app_board where tb_a_seq=#{tb_a_seq}
+</select>
 
 </mapper>

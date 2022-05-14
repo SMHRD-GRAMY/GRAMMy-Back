@@ -18,6 +18,8 @@ public interface TB_AppBoardMapper {
 	public int updateBoard(TB_App_BoardVO vo);
 	//게시판 삭제하기
 	public int deleteBoard(TB_App_BoardVO vo);
+	//게시판 상세보기
+	public TB_App_BoardVO detailBoard(TB_App_BoardVO vo);
 	
 	
 	

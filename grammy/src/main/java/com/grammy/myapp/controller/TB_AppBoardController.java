@@ -63,5 +63,15 @@ public class TB_AppBoardController {
 		}
 	}
 	
+	//게시글 상세보기
+	@RequestMapping(value="/detail",method=RequestMethod.POST)
+	private TB_App_BoardVO detailBoard(TB_App_BoardVO vo) {
+		System.out.println(vo);
+		TB_App_BoardVO vo1=service.detailBoard(vo);
+		System.out.println(vo1);
+		return vo1;
+		
+	}
+	
 
 }
