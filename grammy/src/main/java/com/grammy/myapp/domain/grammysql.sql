@@ -24,7 +24,7 @@ insert into tb_p_reply(pr_seq,purchase_seq,pr_content,pr_date,user_id,user_name)
 CREATE TABLE tb_user
 (
     user_seq         NUMBER(12, 0)    NOT NULL, 
-    user_id          VARCHAR2(30)     NOT NULL, 
+    user_id          VARCHAR2(30)     unique, 
     user_pw          VARCHAR2(100)     NOT NULL, 
     user_phone       VARCHAR2(30)     NOT NULL, 
     user_addr        VARCHAR2(200)    NOT NULL, 
@@ -40,6 +40,8 @@ CREATE SEQUENCE tb_user_SEQ
 START WITH 1
 INCREMENT BY 1;
 /
+delete from tb_user;
+alter table tb_user add constraint user_id_unique unique user_id;
 
 CREATE OR REPLACE TRIGGER tb_user_AI_TRG
 BEFORE INSERT ON tb_user 
@@ -65,6 +67,11 @@ CREATE SEQUENCE tb_shelf_SEQ
 START WITH 1
 INCREMENT BY 1;
 /
+
+insert into tb_shelf values (tb_shelf_SEQ.nextval,'1','1@1');
+insert into tb_shelf values (tb_shelf_SEQ.nextval,'2','2@2');
+insert into tb_shelf values (tb_shelf_SEQ.nextval,'3','3@3');
+select * from tb_shelf;
 
 CREATE OR REPLACE TRIGGER tb_shelf_AI_TRG
 BEFORE INSERT ON tb_shelf 

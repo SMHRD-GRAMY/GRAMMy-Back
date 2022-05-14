@@ -25,6 +25,43 @@ public class TB_AppBoardController {
 		return service.boardList();
 		
 	}
+	//게시글 작성
+	@RequestMapping(value="/insert",method=RequestMethod.POST)
+	private String insertBoard(TB_App_BoardVO vo) {
+		System.out.println(vo);
+		int result=service.insertBoard(vo);
+		System.out.println(result);
+		if(result>0) {
+			return "success";
+		}else {
+			return "fail";
+		}
+		
+	}
+	//게시글 삭제
+	@RequestMapping(value="/delete",method=RequestMethod.POST)
+	private String deleteBoard(TB_App_BoardVO vo) {
+		System.out.println(vo);
+		int result=service.deleteBoard(vo);
+		System.out.println(result);
+		if(result>0) {
+			return "success";
+		}else {
+			return "fail";
+		}
+	}
+	//게시글 업데이트
+	@RequestMapping(value="/update",method=RequestMethod.POST)
+	private String updateBoard(TB_App_BoardVO vo) {
+		System.out.println(vo);
+		int result=service.updateBoard(vo);
+		System.out.println(result);
+		if(result>0) {
+			return "success";
+		}else {
+			return "fail";
+		}
+	}
 	
 
 }
