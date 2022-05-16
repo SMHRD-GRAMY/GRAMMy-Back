@@ -5,6 +5,7 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import com.grammy.myapp.domain.TB_A_ReplyVO;
 import com.grammy.myapp.domain.TB_App_BoardVO;
 import com.grammy.myapp.mapper.TB_AppBoardMapper;
 
@@ -42,6 +43,30 @@ public class TB_AppBoardServiceImpl implements TB_AppBoardService{
 	public TB_App_BoardVO detailBoard(TB_App_BoardVO vo) {
 		
 		return mapper.detailBoard(vo);
+	}
+
+	@Override
+	public List<TB_A_ReplyVO> replyList(TB_A_ReplyVO vo) {
+		
+		return mapper.replyList(vo);
+	}
+
+	@Override
+	public int replyInsert(TB_A_ReplyVO vo) {
+		
+		return mapper.replyInsert(vo);
+	}
+
+	@Override
+	public int replyDelete(TB_A_ReplyVO vo) {
+		
+		return mapper.replyDelete(vo);
+	}
+
+	@Override
+	public int replyUpdate(TB_A_ReplyVO vo) {
+		
+		return mapper.replyUpdate(vo);
 	}
 
 }

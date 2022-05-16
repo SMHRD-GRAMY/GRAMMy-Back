@@ -21,5 +21,20 @@ update tb_app_board set tb_a_title=#{tb_a_title}, tb_a_content=#{tb_a_content} w
 <select id="detailBoard" parameterType="com.grammy.myapp.domain.TB_App_BoardVO" resultType="com.grammy.myapp.domain.TB_App_BoardVO">
 select * from tb_app_board where tb_a_seq=#{tb_a_seq}
 </select>
-
+<!-- 댓글 리스트 가져오기 -->
+<select id="replyList" parameterType="com.grammy.myapp.domain.TB_A_ReplyVO" resultType="com.grammy.myapp.domain.TB_A_ReplyVO">
+select * from tb_a_reply where tb_a_seq=#{tb_a_seq}
+</select>
+<!-- 댓글 작성하기 -->
+<insert id="replyInsert" parameterType="com.grammy.myapp.domain.TB_A_ReplyVO">
+insert into tb_a_reply (ar_seq,tb_a_seq,ar_content,user_id,user_name,ar_date) values (tb_a_reply_SEQ.nextval,#{tb_a_seq},#{ar_content},#{user_id},#{user_name},sysdate)
+</insert>
+<!-- 댓글 삭제하기 -->
+<delete id="replyDelete">
+delete from tb_a_reply where ar_seq=#{ar_seq}
+</delete>
+<!--  댓글 수정하기 -->
+<update id="replyUpdate" parameterType="com.grammy.myapp.domain.TB_A_ReplyVO">
+update tb_a_reply set ar_content=#{ar_content} where ar_seq=#{ar_seq}
+</update>
 </mapper>

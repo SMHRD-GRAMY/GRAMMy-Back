@@ -7,7 +7,7 @@ import lombok.NoArgsConstructor;
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
-public class TB_A_Reply {
+public class TB_A_ReplyVO {
 	private int ar_seq;
 	private int tb_a_seq;
 	private String ar_content;
