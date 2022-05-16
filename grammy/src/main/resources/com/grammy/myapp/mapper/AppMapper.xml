@@ -23,7 +23,7 @@ select * from tb_app_board where tb_a_seq=#{tb_a_seq}
 </select>
 <!-- 댓글 리스트 가져오기 -->
 <select id="replyList" parameterType="com.grammy.myapp.domain.TB_A_ReplyVO" resultType="com.grammy.myapp.domain.TB_A_ReplyVO">
-select * from tb_a_reply where tb_a_seq=#{tb_a_seq}
+select * from tb_a_reply where tb_a_seq=#{tb_a_seq} order by ar_seq
 </select>
 <!-- 댓글 작성하기 -->
 <insert id="replyInsert" parameterType="com.grammy.myapp.domain.TB_A_ReplyVO">
