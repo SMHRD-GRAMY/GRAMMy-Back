@@ -76,9 +76,9 @@ public class TB_AppBoardController {
 	}
 	
 	//댓글 리스트 불러오기
-	@RequestMapping(value="/replylist", method=RequestMethod.GET)
+	@RequestMapping(value="/replylist", method=RequestMethod.POST)
 	private List<TB_A_ReplyVO> replyList(TB_A_ReplyVO vo){
-		
+		System.out.println(vo);
 		return service.replyList(vo);
 		
 	}
