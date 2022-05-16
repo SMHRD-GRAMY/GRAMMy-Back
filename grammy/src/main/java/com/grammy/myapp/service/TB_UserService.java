@@ -19,4 +19,10 @@ public interface TB_UserService {
 	
 	public int updateUser(TB_UserVO vo) throws Exception;
 
+	public TB_UserVO findId(TB_UserVO vo) throws Exception;
+
+	public TB_UserVO findPw(TB_UserVO vo) throws Exception;
+
+	public int modifyPw(TB_UserVO vo) throws Exception;
+
 }
