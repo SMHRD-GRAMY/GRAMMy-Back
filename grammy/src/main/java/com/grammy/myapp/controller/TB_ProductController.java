@@ -12,6 +12,7 @@ import org.springframework.web.bind.annotation.RestController;
 
 import com.grammy.myapp.domain.TB_ShelfStockVO;
 import com.grammy.myapp.domain.TB_ShelfVO;
+import com.grammy.myapp.domain.TB_StockDetailVO;
 import com.grammy.myapp.domain.TB_StockVO;
 import com.grammy.myapp.domain.TB_Stock_WeightVO;
 import com.grammy.myapp.service.TB_ProductService;
@@ -63,6 +64,12 @@ public class TB_ProductController {
 		} else {
 			return "fail";
 		}
+	}
+	//물품 상세보기 ( 무게 등록일자 등)
+	@RequestMapping(value="/detailItem",method=RequestMethod.POST)
+	public TB_StockDetailVO detailItem(TB_StockDetailVO vo) {
+		System.out.println(vo);
+		return service.detailItem(vo);
 	}
 
 	//무게테이블에 무게 추가하기

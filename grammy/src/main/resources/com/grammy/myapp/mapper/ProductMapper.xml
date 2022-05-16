@@ -33,6 +33,16 @@ insert into TB_Stock (stock_seq,stock_name,stock_weight,stock_date,stock_shelfLi
 values(tb_stock_seq.nextval,#{stock_name},#{stock_weight},sysdate,#{stock_shelfLife},#{shelf_seq},#{stock_order})
 </insert>
 
+<!-- 물품 상세 무게 및 데이터 조회 -->
+<select id="detailItem" parameterType="com.grammy.myapp.domain.TB_StockDetailVO" resultType="com.grammy.myapp.domain.TB_StockDetailVO">
+select stock_seq,stock_name,stock_weight,stock_date,stock_shelfLife,stock_order,weight_value,weight_date
+from (select st.stock_seq,st.stock_name,st.stock_weight,st.stock_date,st.stock_shelfLife,st.stock_order,sw.weight_value,sw.weight_date
+from tb_stock st,tb_stock_weight sw
+where st.stock_seq=sw.stock_seq
+and st.stock_seq=#{stock_seq}
+order by sw.weight_seq desc)
+where rownum=1
+</select>
 <!-- 물품 무게 테이블 insert문으로 넣어주기 -->
 <insert id="insertWeight" parameterType="com.grammy.myapp.domain.TB_Stock_WeightVO">
 insert into TB_stock_weight(weight_seq,stock_seq,weight_value,weight_date) values (tb_stock_weight_SEQ.nextval,#{stock_seq},#{weight_value},sysdate})

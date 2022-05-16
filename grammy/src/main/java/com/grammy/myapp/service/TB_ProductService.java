@@ -4,6 +4,7 @@ import java.util.List;
 
 import com.grammy.myapp.domain.TB_ShelfStockVO;
 import com.grammy.myapp.domain.TB_ShelfVO;
+import com.grammy.myapp.domain.TB_StockDetailVO;
 import com.grammy.myapp.domain.TB_StockVO;
 import com.grammy.myapp.domain.TB_Stock_WeightVO;
 
@@ -16,6 +17,8 @@ public interface TB_ProductService {
 	public int insertShelf(TB_ShelfVO vo);
 	
 	public List<TB_ShelfStockVO> stockList(TB_ShelfStockVO vo);
+	
+	public TB_StockDetailVO detailItem(TB_StockDetailVO vo);
 	
 	public int insertStock(TB_StockVO vo);
 	

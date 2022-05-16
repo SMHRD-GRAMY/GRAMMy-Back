@@ -7,6 +7,7 @@ import org.springframework.stereotype.Service;
 
 import com.grammy.myapp.domain.TB_ShelfStockVO;
 import com.grammy.myapp.domain.TB_ShelfVO;
+import com.grammy.myapp.domain.TB_StockDetailVO;
 import com.grammy.myapp.domain.TB_StockVO;
 import com.grammy.myapp.domain.TB_Stock_WeightVO;
 import com.grammy.myapp.mapper.TB_ProductMapper;
@@ -52,6 +53,11 @@ public class TB_ProductServiceImpl implements TB_ProductService{
 	public int insertWeight(TB_Stock_WeightVO vo) {
 		
 		return mapper.insertWeight(vo);
+	}
+	@Override
+	public TB_StockDetailVO detailItem(TB_StockDetailVO vo) {
+		
+		return mapper.detailItem(vo);
 	}
 
 
