@@ -23,7 +23,7 @@
 	select user_id from TB_user where user_phone=#{user_phone} and user_name=#{user_name}
 	</select>
 	<!-- 비밀번호 찾기(이름 아이디 핸드폰번호) -->
-	<select id="findPw" parameterType="com.grammy.myapp.domain.TB_UserVO">
+	<select id="findPw" resultType="com.grammy.myapp.domain.TB_UserVO">
 	select * from tb_user where user_id=#{user_id} and user_phone=#{user_phone} and user_name=#{user_name}
 	</select>
 	<!-- 비밀번호 수정하기 -->
