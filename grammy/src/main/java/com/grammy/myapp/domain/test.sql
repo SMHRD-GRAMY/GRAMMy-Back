@@ -39,9 +39,9 @@ values(tb_stock_seq.nextval,'과자',30,sysdate,'2022-05-14',22,'온라인');
 
 select * from tb_stock_weight;
 
-insert into tb_stock_weight values (tb_stock_weight_seq.nextval,'11',10,sysdate,'11kg');
-insert into tb_stock_weight values (tb_stock_weight_seq.nextval,'12',10,sysdate,'12kg');
-insert into tb_stock_weight values (tb_stock_weight_seq.nextval,'13',10,sysdate,'13kg');
+insert into tb_stock_weight values (tb_stock_weight_seq.nextval,'22',22,sysdate,'22kg');
+insert into tb_stock_weight values (tb_stock_weight_seq.nextval,'22',21,sysdate,'21kg');
+insert into tb_stock_weight values (tb_stock_weight_seq.nextval,13,10,sysdate,'13kg');
 insert into tb_stock_weight values (tb_stock_weight_seq.nextval,'14',10,sysdate,'14kg');
 insert into tb_stock_weight values (tb_stock_weight_seq.nextval,'11',11,sysdate,'11kg');
 insert into tb_stock_weight values (tb_stock_weight_seq.nextval,'11',12,sysdate,'12kg');

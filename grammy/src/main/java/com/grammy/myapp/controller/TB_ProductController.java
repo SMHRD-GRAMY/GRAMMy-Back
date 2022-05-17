@@ -1,6 +1,7 @@
 package com.grammy.myapp.controller;
 
 import java.util.List;
+import java.util.Map;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.CrossOrigin;
@@ -66,10 +67,12 @@ public class TB_ProductController {
 	@RequestMapping(value = "/insertstock", method = RequestMethod.POST)
 	public String insertStock(TB_StockVO vo) {
 		System.out.println(vo);
+		System.out.println(vo);
+		System.out.println(vo);
 		int result = service.insertStock(vo);
 		if (result > 0) {
 			return "success";
-		} else {
+			} else {
 			return "fail";
 		}
 	}

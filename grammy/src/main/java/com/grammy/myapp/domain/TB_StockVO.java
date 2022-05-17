@@ -11,7 +11,7 @@ import lombok.NoArgsConstructor;
 public class TB_StockVO {
 	private int stock_seq;
 	private String stock_name;
-	private double stock_weight;
+	private Integer stock_weight;
 	private String stock_date;
 	private String stock_shelfLife;
 	private int shelf_seq;
