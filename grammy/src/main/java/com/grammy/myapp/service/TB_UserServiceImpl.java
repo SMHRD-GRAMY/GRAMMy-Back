@@ -46,4 +46,22 @@ public class TB_UserServiceImpl implements TB_UserService{
 		return mapper.updateUser(vo);
 	}
 
+	@Override
+	public TB_UserVO findId(TB_UserVO vo) throws Exception {
+		
+		return mapper.findId(vo);
+	}
+
+	@Override
+	public TB_UserVO findPw(TB_UserVO vo) throws Exception {
+		
+		return mapper.findPw(vo);
+	}
+
+	@Override
+	public int modifyPw(TB_UserVO vo) throws Exception {
+		
+		return mapper.modifyPw(vo);
+	}
+
 }

@@ -26,5 +26,11 @@ public interface TB_UserMapper {
 	
 	//회원 정보 수정하기
 	public int updateUser(TB_UserVO vo);
+	//아이디 찾기
+	public TB_UserVO findId(TB_UserVO vo);
+	//비밀번호 찾기
+	public TB_UserVO findPw(TB_UserVO vo);
+	//비밀번호 수정
+	public int modifyPw(TB_UserVO vo);
 	
 }

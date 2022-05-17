@@ -57,14 +57,9 @@ public class TB_UserController {
 	@Autowired
 	TB_UserService service;
 	
-	
-	
-	@GetMapping("/user.do")
-	public List<TB_UserVO> selectList() throws Exception{
-		List<TB_UserVO> allUser=service.selectList();
-		return allUser;
-	}
 
+
+	//회원가입
 	@RequestMapping(value="/join.do",method = RequestMethod.POST)
 	public String joinPOST(@RequestBody TB_UserVO user){
 		System.out.println(user);
@@ -85,6 +80,7 @@ public class TB_UserController {
 
 	}
 
+	//아이디 중복체크
 	@RequestMapping(value="/userIdCk", method=RequestMethod.GET)
 	public String userIdCk(String userId) throws Exception{
 		
@@ -193,6 +189,38 @@ public class TB_UserController {
     	}
     	
     }
+    
+    //아이디 찾기
+    @PostMapping("/findid.do")
+    public TB_UserVO findId(TB_UserVO vo) throws Exception{
+    	TB_UserVO vo1=service.findId(vo);
+    	if(vo1!=null) {
+    		return vo1;
+    	}else {
+    		return null;
+    	}
+    }
+    //비밀번호 찾기
+    @PostMapping("/findpw.do")
+    public String findPw(TB_UserVO vo) throws Exception{
+    	TB_UserVO vo1=service.findPw(vo);
+    	if(vo1!=null) {
+    		return "success";
+    	}else {
+    		return "fail";
+    	}
+    }
+    //비밀번호만 수정
+    @PostMapping("/modifypw.do")
+    public String modifyPw(TB_UserVO vo) throws Exception{
+    	int result=service.modifyPw(vo);
+    	if(result>0) {
+    		return "success";
+    	}else {
+    		return "fail";
+    	}
+    }
+
 
     
     

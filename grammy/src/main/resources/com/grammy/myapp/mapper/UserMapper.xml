@@ -18,4 +18,16 @@
 	<update id="updateUser" parameterType="com.grammy.myapp.domain.TB_UserVO" >
 	update tb_user set user_pw=#{user_pw},user_phone=#{user_phone},user_addr=#{user_addr},user_name=#{user_name},user_gender=#{user_gender} where user_id=#{user_id}
 	</update>
+	<!-- 아이디찾기(이름과 폰번호) -->
+	<select id="findId" resultType="com.grammy.myapp.domain.TB_UserVO">
+	select user_id from TB_user where user_phone=#{user_phone} and user_name=#{user_name}
+	</select>
+	<!-- 비밀번호 찾기(이름 아이디 핸드폰번호) -->
+	<select id="findPw" resultType="com.grammy.myapp.domain.TB_UserVO">
+	select * from tb_user where user_id=#{user_id} and user_phone=#{user_phone} and user_name=#{user_name}
+	</select>
+	<!-- 비밀번호 수정하기 -->
+	<update id="modifyPw" parameterType="com.grammy.myapp.domain.TB_UserVO">
+	update tb_user set user_pw=#{user_pw} where user_id=#{user_id}
+	</update>
 </mapper>
