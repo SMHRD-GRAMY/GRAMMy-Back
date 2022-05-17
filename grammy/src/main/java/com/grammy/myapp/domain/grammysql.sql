@@ -359,8 +359,13 @@ CREATE SEQUENCE tb_a_reply_SEQ
 START WITH 1
 INCREMENT BY 1;
 
-INSERT INTO tb_a_reply (ar_seq, tb_a_seq, ar_content, user_id, user_name, ar_date) VALUES (tb_a_reply_SEQ.nextval,1, 'ar_content 1', 'user_id 1', 'user_name 1', sysdate);
-INSERT INTO tb_a_reply (ar_seq, tb_a_seq, ar_content, user_id, user_name, ar_date) VALUES (tb_a_reply_SEQ.nextval,2, 'ar_content 2', 'user_id 2', 'user_name 2', sysdate);
-INSERT INTO tb_a_reply (ar_seq, tb_a_seq, ar_content, user_id, user_name, ar_date) VALUES (tb_a_reply_SEQ.nextval,3, 'ar_content 3', 'user_id 3', 'user_name 3', sysdate);
-INSERT INTO tb_a_reply (ar_seq, tb_a_seq, ar_content, user_id, user_name, ar_date) VALUES (tb_a_reply_SEQ.nextval,4, 'ar_content 4', 'user_id 4', 'user_name 4', sysdate);
-INSERT INTO tb_a_reply (ar_seq, tb_a_seq, ar_content, user_id, user_name, ar_date) VALUES (tb_a_reply_SEQ.nextval,5, 'ar_content 5', 'user_id 5', 'user_name 5', sysdate);
+ALTER TABLE tb_a_reply
+    ADD CONSTRAINT FK_tb_app_board_seq_tb_a FOREIGN KEY (tb_a_seq)
+        REFERENCES tb_app_board (tb_a_seq);
+
+
+INSERT INTO tb_a_reply (ar_seq, tb_a_seq, ar_content, user_id, user_name, ar_date) VALUES (tb_a_reply_SEQ.nextval,21, 'ar_content 1', 'user_id 1', 'user_name 1', sysdate);
+INSERT INTO tb_a_reply (ar_seq, tb_a_seq, ar_content, user_id, user_name, ar_date) VALUES (tb_a_reply_SEQ.nextval,21, 'ar_content 2', 'user_id 2', 'user_name 2', sysdate);
+INSERT INTO tb_a_reply (ar_seq, tb_a_seq, ar_content, user_id, user_name, ar_date) VALUES (tb_a_reply_SEQ.nextval,21, 'ar_content 3', 'user_id 3', 'user_name 3', sysdate);
+INSERT INTO tb_a_reply (ar_seq, tb_a_seq, ar_content, user_id, user_name, ar_date) VALUES (tb_a_reply_SEQ.nextval,21, 'ar_content 4', 'user_id 4', 'user_name 4', sysdate);
+INSERT INTO tb_a_reply (ar_seq, tb_a_seq, ar_content, user_id, user_name, ar_date) VALUES (tb_a_reply_SEQ.nextval,21, 'ar_content 5', 'user_id 5', 'user_name 5', sysdate);

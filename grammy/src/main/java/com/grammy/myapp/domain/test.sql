@@ -1,3 +1,8 @@
+select * from tb_a_reply;
+select * from TB_APP_BOARD;
+
+
+\\\
 select sh.shelf_seq,sh.shelf_name,sh.user_id,st.stock_seq,st.stock_name
 from tb_shelf sh,tb_stock st
 where sh.shelf_seq=st.shelf_seq
@@ -10,12 +15,12 @@ and sh.shelf_seq = (select shelf_seq from tb_shelf where user_id='1@1' and rownu
 select * from tb_shelf;
 select* from tb_stock;
 
-insert into tb_shelf(shelf_seq,shelf_name,user_id) values(tb_shelf_seq.nextval,'창고','1@1');
+insert into tb_shelf(shelf_seq,shelf_name,user_id) values(tb_shelf_seq.nextval,'창고','4@4');
 insert into tb_shelf(shelf_seq,shelf_name,user_id) values(tb_shelf_seq.nextval,'창고2','1@1');
 insert into TB_stock(stock_seq,stock_name,stock_weight,stock_date,stock_shelfLife,shelf_seq,stock_order)
-values(tb_stock_seq.nextval,'사과',10,sysdate,'2022-05-14',21,'온라인');
+values(tb_stock_seq.nextval,'사과',10,sysdate,'2022-05-14',41,'온라인');
 insert into TB_stock(stock_seq,stock_name,stock_weight,stock_date,stock_shelfLife,shelf_seq,stock_order)
-values(tb_stock_seq.nextval,'배',20,sysdate,'2022-05-14',21,'온라인');
+values(tb_stock_seq.nextval,'배',20,sysdate,'2022-05-14',41,'온라인');
 insert into TB_stock(stock_seq,stock_name,stock_weight,stock_date,stock_shelfLife,shelf_seq,stock_order)
 values(tb_stock_seq.nextval,'과자',30,sysdate,'2022-05-14',21,'온라인');
 insert into TB_stock(stock_seq,stock_name,stock_weight,stock_date,stock_shelfLife,shelf_seq,stock_order)
