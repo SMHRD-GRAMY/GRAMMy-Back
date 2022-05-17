@@ -2,24 +2,24 @@
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.grammy.myapp.mapper.TB_ProductMapper">
 <!-- 아이디 매개변수로 선반에 있는 제품 리스트 가져오기 -->
-<select id="stockList" parameterType="com.grammy.myapp.domain.TB_ShelfStockVO">
+<select id="stockList" parameterType="com.grammy.myapp.domain.TB_ShelfStockVO" resultType="com.grammy.myapp.domain.TB_ShelfStockVO">
 select sh.shelf_seq,sh.shelf_name,sh.user_id,st.stock_seq,st.stock_name
 from tb_shelf sh,tb_stock st
 where sh.shelf_seq=st.shelf_seq
 and sh.user_id=#{user_id}
-and sh.shelf_seq = (select shelf_seq from tb_shelf where user_id=#{user_id} and rownum=1);
+and sh.shelf_seq = (select shelf_seq from tb_shelf where user_id=#{user_id} and rownum=1)
 </select>
 
 <!-- 선반번호로 선반에 있는 제품 리스트 가져오기 리턴할경우-->
-<select id="returnStockList" parameterType="com.grammy.myapp.domain.TB_ShelfStockVO">
+<select id="returnStockList" parameterType="com.grammy.myapp.domain.TB_ShelfStockVO" resultType="com.grammy.myapp.domain.TB_ShelfStockVO">
 select sh.shelf_seq,sh.shelf_name,sh.user_id,st.stock_seq,st.stock_name
 from tb_shelf sh,tb_stock st
 where sh.shelf_seq=st.shelf_seq
-and sh.shelf_seq = #{shelf_seq};
+and sh.shelf_seq = #{shelf_seq}
 </select>
 
 <!-- 아이디를 통해 선반 리스트 가져오기 -->
-<select id="shelfList" parameterType="com.grammy.myapp.domain.TB_ShelfVO">
+<select id="shelfList" parameterType="com.grammy.myapp.domain.TB_ShelfVO" resultType="com.grammy.myapp.domain.TB_ShelfVO">
 select * from TB_Shelf where user_id=#{user_id}
 </select>
 <!-- 선반 등록하기 -->
