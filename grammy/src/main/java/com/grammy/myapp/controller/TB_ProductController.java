@@ -26,8 +26,16 @@ public class TB_ProductController {
 	//초기에 버튼 클릭시 선반과 물품 가져오기 user_id를 매개변수로 받아올때
 	@RequestMapping(value="/stocklist",method=RequestMethod.POST)
 	public List<TB_ShelfStockVO> stockList(TB_ShelfStockVO vo){
+		System.out.println(vo);
+		List<TB_ShelfStockVO> list=service.stockList(vo);
+		System.out.println(list);
+		if(list!=null) {
+		return list;
 		
-		return service.stockList(vo);
+		}
+		else {
+			return null;
+		}
 	}
 	//선반 선택 클릭시 선반과 물품 가져오기 shelf_seq를 매개변수로 받아올때
 	@RequestMapping(value="/returnlist",method=RequestMethod.POST)
