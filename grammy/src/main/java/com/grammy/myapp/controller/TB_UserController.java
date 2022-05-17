@@ -202,17 +202,22 @@ public class TB_UserController {
     }
     //비밀번호 찾기
     @PostMapping("/findpw.do")
-    public String findPw(TB_UserVO vo) throws Exception{
+    public TB_UserVO findPw(TB_UserVO vo) throws Exception{
     	TB_UserVO vo1=service.findPw(vo);
     	if(vo1!=null) {
-    		return "success";
+    		return vo1;
     	}else {
-    		return "fail";
+    		return null;
     	}
     }
     //비밀번호만 수정
     @PostMapping("/modifypw.do")
     public String modifyPw(TB_UserVO vo) throws Exception{
+    	
+    	String rawPassword=vo.getUser_pw();
+		String encPassword=passwordEncoder.encode(rawPassword);
+		vo.setUser_pw(encPassword);
+		
     	int result=service.modifyPw(vo);
     	if(result>0) {
     		return "success";
