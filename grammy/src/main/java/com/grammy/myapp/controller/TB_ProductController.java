@@ -41,7 +41,8 @@ public class TB_ProductController {
 	//선반 선택 클릭시 선반과 물품 가져오기 shelf_seq를 매개변수로 받아올때
 	@RequestMapping(value="/returnlist",method=RequestMethod.POST)
 	public List<TB_ShelfStockVO> returnStockList(TB_ShelfStockVO vo){
-		
+		System.out.println(vo);
+		System.out.println(service.returnShelfList(vo));
 		return service.returnShelfList(vo);
 	}
 
@@ -55,6 +56,18 @@ public class TB_ProductController {
 	@RequestMapping(value = "/insertshelf", method = RequestMethod.POST)
 	public String insertShelf(TB_ShelfVO vo) {
 		int result = service.insertShelf(vo);
+		if (result > 0) {
+			return "success";
+		} else {
+			return "fail";
+		}
+
+	}
+	//선반 삭제하기
+	@RequestMapping(value="/deleteshelf",method=RequestMethod.POST)
+	public String deleteShelf(TB_ShelfVO vo) {
+		System.out.println(vo);
+		int result=service.deleteShelf(vo);
 		if (result > 0) {
 			return "success";
 		} else {
@@ -76,10 +89,24 @@ public class TB_ProductController {
 			return "fail";
 		}
 	}
+	//제품(stock) 업데이트
+	@RequestMapping(value="/updatestock",method=RequestMethod.POST)
+	public String updateStock(TB_StockVO vo) {
+		System.out.println(vo);
+		System.out.println(vo);
+		System.out.println(vo);
+		int result=service.updateStock(vo);
+		if(result>0) {
+			return "success";
+		}else {
+			return "fail";
+		}
+	}
 	//물품 상세보기 ( 무게 등록일자 등)
 	@RequestMapping(value="/detailItem",method=RequestMethod.POST)
 	public TB_StockDetailVO detailItem(TB_StockDetailVO vo) {
 		System.out.println(vo);
+		System.out.println(service.detailItem(vo));
 		return service.detailItem(vo);
 	}
 

@@ -59,6 +59,16 @@ public class TB_ProductServiceImpl implements TB_ProductService{
 		
 		return mapper.detailItem(vo);
 	}
+	@Override
+	public int updateStock(TB_StockVO vo) {
+		
+		return mapper.updateStock(vo);
+	}
+	@Override
+	public int deleteShelf(TB_ShelfVO vo) {
+		
+		return mapper.deleteShelf(vo);
+	}
 
 
 

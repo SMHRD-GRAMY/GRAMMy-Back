@@ -347,7 +347,7 @@ CREATE TABLE tb_a_reply
 (
     ar_seq        NUMBER(12, 0)    NOT NULL, 
     tb_a_seq      NUMBER(12, 0)    NOT NULL, 
-    ar_content    VARCHAR2(30)     NOT NULL, 
+    ar_content    VARCHAR2(4000)     NOT NULL, 
     user_id       VARCHAR2(30)     NOT NULL, 
     user_name     VARCHAR2(200)    NOT NULL, 
     ar_date       DATE             NOT NULL, 

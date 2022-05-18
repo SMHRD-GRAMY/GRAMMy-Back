@@ -16,6 +16,8 @@ public interface TB_ProductService {
 	
 	public int insertShelf(TB_ShelfVO vo);
 	
+	public int deleteShelf(TB_ShelfVO vo);
+	
 	public List<TB_ShelfStockVO> stockList(TB_ShelfStockVO vo);
 	
 	public TB_StockDetailVO detailItem(TB_StockDetailVO vo);
@@ -23,5 +25,7 @@ public interface TB_ProductService {
 	public int insertStock(TB_StockVO vo);
 	
 	public int insertWeight(TB_Stock_WeightVO vo);
+	
+	public int updateStock(TB_StockVO vo);
 
 }

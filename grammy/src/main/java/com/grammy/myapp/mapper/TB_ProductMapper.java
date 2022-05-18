@@ -21,12 +21,16 @@ public interface TB_ProductMapper {
 	public int insertShelf(TB_ShelfVO vo);
 	//선반(창고) 리스트 가져오기
 	public List<TB_ShelfVO> shelfList(TB_ShelfVO vo);
+	//선반 삭제하기
+	public int deleteShelf(TB_ShelfVO vo);
 	//물품 상세 보기 (현재무게 나중무게 등)
 	public TB_StockDetailVO detailItem(TB_StockDetailVO vo);
 	//물품(stock) 등록하기
 	public int insertStock(TB_StockVO vo);
 	//물품 무게 insert문으로 넣기
 	public int insertWeight(TB_Stock_WeightVO vo);
+	//물품 수정(업데이트)하기
+	public int updateStock(TB_StockVO vo);
 
 
 }
