@@ -12,7 +12,7 @@ public class TB_Stock_WeightVO {
 
 	private int weight_seq;
 	private int stock_seq;
-	private double weight_value;
+	private int weight_value;
 	private String weight_date;
 	private String weight_memo;
 }

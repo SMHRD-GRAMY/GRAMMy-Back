@@ -114,6 +114,9 @@ public class TB_ProductController {
 	@RequestMapping(value = "/insertweight", method = RequestMethod.POST)
 	public String insertWeight(TB_Stock_WeightVO vo) {
 		System.out.println(vo);
+		System.out.println(vo);
+		System.out.println(vo);
+		System.out.println(vo);
 		int result = service.insertWeight(vo);
 		if (result > 0) {
 			return "success";
