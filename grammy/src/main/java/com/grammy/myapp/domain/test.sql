@@ -1,3 +1,20 @@
+insert into TB_purchase(purchase_seq,
+    purchase_title, 
+    purchase_content, 
+    purchase_date, 
+    purchase_cnt, 
+    user_id,
+    user_name) values(
+    tb_purchase_SEQ.nextval,
+    '회사에 하나 있으면 좋을 것 같아서 가격문의 드립니다', 
+    '한번 제품 받아보고싶습니다', 
+    sysdate, 
+    10, 
+    5,
+    '고승표'
+    ); 
+
+
 select * from tb_a_reply;
 select * from TB_APP_BOARD;
 
