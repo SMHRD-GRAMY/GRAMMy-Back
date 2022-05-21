@@ -26,10 +26,6 @@ select * from TB_Shelf where user_id=#{user_id}
 <insert id="insertShelf" parameterType="com.grammy.myapp.domain.TB_ShelfVO">
 insert into TB_Shelf values(tb_shelf_seq.nextval,#{shelf_name},#{user_id})
 </insert>
-<!-- 선반 삭제하기 -->
-<delete id="deleteShelf" parameterType="com.grammy.myapp.domain.TB_ShelfVO">
-delete from TB_shelf where shelf_seq=#{shelf_seq}
-</delete>
 
 <!-- 물품(stock) 등록하기 -->
 <insert id="insertStock" parameterType="com.grammy.myapp.domain.TB_StockVO">
@@ -47,17 +43,16 @@ and st.stock_seq=#{stock_seq}
 order by sw.weight_seq desc)
 where rownum=1
 </select>
-
-<!-- 물품 수정하기 (업데이트)_ -->
-<update id="updateStock" parameterType="com.grammy.myapp.domain.TB_StockVO">
-update TB_Stock set stock_name=#{stock_name},stock_weight=#{stock_weight},stock_date=sysdate,stock_shelfLife=#{stock_shelfLife},stock_order=#{stock_order} where stock_seq=#{stock_seq}
-</update>
 <!-- 물품 무게 테이블 insert문으로 넣어주기 -->
 <insert id="insertWeight" parameterType="com.grammy.myapp.domain.TB_Stock_WeightVO">
-insert into TB_stock_weight(weight_seq,stock_seq,weight_value,weight_date) values (tb_stock_weight_SEQ.nextval,#{stock_seq},#{weight_value},sysdate})
+insert into TB_stock_weight(weight_seq,stock_seq,weight_value,weight_date) values (tb_stock_weight_SEQ.nextval,#{stock_seq},#{weight_value},sysdate)
 </insert>
 <!-- 물품 무게 테이블 업데이트 -->
 <update id="updateWeight" parameterType="com.grammy.myapp.domain.TB_Stock_WeightVO">
 update TB_stock_weight set weight_value=#{weight_value} where stock_seq=#{stock_seq}
 </update>
+<!--  물품 무게 가져오기 -->
+<select id="getWeight" resultType="com.grammy.myapp.domain.TB_Stock_WeightVO" parameterType="com.grammy.myapp.domain.TB_Stock_WeightVO">
+select weight_value from tb_stock_weight where stock_seq=#{stock_seq}
+</select>
 </mapper>
