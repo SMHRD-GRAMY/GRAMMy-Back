@@ -4,10 +4,19 @@ select * from TB_PURCHASE;
 select * from TB_STOCK;
 
 DROP TABLE tb_user CASCADE CONSTRAINTS;
-DROP TABLE tb_shelf CASCADE CONSTRAINTS;
+
+select a.sid, a.serial# 
+from v$session a, v$lock b, dba_objects c 
+where a.sid=b.sid and 
+b.id1=c.object_id and 
+b.type='TM' and 
+c.object_name='tb_p_reply';
+
+alter session set ddl_lock_timeout = 600;
 DROP TABLE tb_purchase CASCADE CONSTRAINTS;
 DROP TABLE tb_p_reply CASCADE CONSTRAINTS;
 DROP TABLE tb_report CASCADE CONSTRAINTS;
+DROP TABLE tb_shelf CASCADE CONSTRAINTS;
 DROP TABLE tb_stock CASCADE CONSTRAINTS;
 DROP TABLE tb_stock_weight CASCADE CONSTRAINTS;
 DROP TABLE tb_reply CASCADE CONSTRAINTS;
@@ -123,10 +132,11 @@ BEGIN
     FROM DUAL;
 END;
 
+ALTER TABLE tb_stock drop CONSTRAINT FK_tb_stock_shelf_seq_tb_shelf;
 
 ALTER TABLE tb_stock
     ADD CONSTRAINT FK_tb_stock_shelf_seq_tb_shelf FOREIGN KEY (shelf_seq)
-        REFERENCES tb_shelf (shelf_seq)
+        REFERENCES tb_shelf (shelf_seq) ON DELETE CASCADE;
 /
 
 
@@ -233,11 +243,11 @@ BEGIN
 END;
 /
 
-
+ALTER TABLE tb_reply drop CONSTRAINT FK_tb_reply_report_seq_tb_repo;
 
 ALTER TABLE tb_reply
     ADD CONSTRAINT FK_tb_reply_report_seq_tb_repo FOREIGN KEY (report_seq)
-        REFERENCES tb_report (report_seq)
+        REFERENCES tb_report (report_seq) ON DELETE CASCADE;
 /
 
 ALTER TABLE tb_reply
@@ -274,11 +284,11 @@ BEGIN
 END;
 /
 
-
+ALTER TABLE tb_p_reply drop CONSTRAINT FK_tb_p_reply_purchase_seq_tb;
 
 ALTER TABLE tb_p_reply
     ADD CONSTRAINT FK_tb_p_reply_purchase_seq_tb_ FOREIGN KEY (purchase_seq)
-        REFERENCES tb_purchase (purchase_seq)
+        REFERENCES tb_purchase (purchase_seq) ON DELETE CASCADE;
 /
 
 ALTER TABLE tb_p_reply
@@ -314,10 +324,11 @@ BEGIN
 END;
 /
 
+alter table tb_stock_weight drop constraint FK_tb_stock_weight_stock_seq_t; 
 
 ALTER TABLE tb_stock_weight
     ADD CONSTRAINT FK_tb_stock_weight_stock_seq_t FOREIGN KEY (stock_seq)
-        REFERENCES tb_stock (stock_seq)
+        REFERENCES tb_stock (stock_seq) ON DELETE CASCADE;
 /
 
 
@@ -358,10 +369,11 @@ CREATE TABLE tb_a_reply
 CREATE SEQUENCE tb_a_reply_SEQ
 START WITH 1
 INCREMENT BY 1;
+alter table tb_a_reply drop constraint FK_tb_app_board_seq_tb_a;
 
 ALTER TABLE tb_a_reply
     ADD CONSTRAINT FK_tb_app_board_seq_tb_a FOREIGN KEY (tb_a_seq)
-        REFERENCES tb_app_board (tb_a_seq);
+        REFERENCES tb_app_board (tb_a_seq) ON DELETE CASCADE;
 
 
 INSERT INTO tb_a_reply (ar_seq, tb_a_seq, ar_content, user_id, user_name, ar_date) VALUES (tb_a_reply_SEQ.nextval,21, 'ar_content 1', 'user_id 1', 'user_name 1', sysdate);

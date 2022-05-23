@@ -32,7 +32,7 @@ insert into TB_purchase(purchase_seq,
     #{purchase_title}, 
     #{purchase_content}, 
     sysdate, 
-    1, 
+    0, 
     #{user_id},
     #{user_name}
     ) 
