@@ -81,8 +81,9 @@ public class TB_UserController {
 	}
 
 	//아이디 중복체크
-	@RequestMapping(value="/userIdCk", method=RequestMethod.GET)
+	@RequestMapping(value="/userIdCk.do", method=RequestMethod.POST)
 	public String userIdCk(String userId) throws Exception{
+		System.out.println(userId);
 		
 		int result = service.idCheck(userId);
 
