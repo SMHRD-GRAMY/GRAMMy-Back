@@ -27,10 +27,11 @@ public interface TB_ProductMapper {
 	public TB_StockDetailVO detailItem(TB_StockDetailVO vo);
 	//물품(stock) 등록하기
 	public int insertStock(TB_StockVO vo);
+	//물품(stock) 수정하기
+	public int updateStock(TB_StockVO vo);
 	//물품 무게 insert문으로 넣기
 	public int insertWeight(TB_Stock_WeightVO vo);
-	//물품 수정(업데이트)하기
-	public int updateStock(TB_StockVO vo);
+
 
 
 }

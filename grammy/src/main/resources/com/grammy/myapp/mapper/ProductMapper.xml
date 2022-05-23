@@ -27,11 +27,17 @@ select * from TB_Shelf where user_id=#{user_id}
 insert into TB_Shelf values(tb_shelf_seq.nextval,#{shelf_name},#{user_id})
 </insert>
 
+
 <!-- 물품(stock) 등록하기 -->
 <insert id="insertStock" parameterType="com.grammy.myapp.domain.TB_StockVO">
 insert into TB_Stock (stock_seq,stock_name,stock_weight,stock_date,stock_shelfLife,shelf_seq,stock_order)
 values(tb_stock_seq.nextval,#{stock_name},#{stock_weight},sysdate,#{stock_shelfLife},#{shelf_seq},#{stock_order})
 </insert>
+
+<!--물품(stock)  업데이트 하기 -->
+<update id="updateStock" parameterType="com.grammy.myapp.domain.TB_StockVO">
+update tb_stock set stock_name=#{stock_name},stock_weight=#{stock_weight},stock_shelfLife=#{stock_shelfLife},stock_order=#{stock_order} where stock_seq=#{stock_seq}
+</update>
 
 <!-- 물품 상세 무게 및 데이터 조회 -->
 <select id="detailItem" parameterType="com.grammy.myapp.domain.TB_StockDetailVO" resultType="com.grammy.myapp.domain.TB_StockDetailVO">
