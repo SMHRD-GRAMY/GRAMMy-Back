@@ -29,9 +29,9 @@ public class TB_UserServiceImpl implements TB_UserService{
 	}
 
 	@Override
-	public int idCheck(String userId) throws Exception {
+	public int idCheck(TB_UserVO user) throws Exception {
 		
-		return mapper.idCheck(userId);
+		return mapper.idCheck(user);
 	}
 
 	@Override

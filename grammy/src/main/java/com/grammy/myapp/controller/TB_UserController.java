@@ -81,11 +81,11 @@ public class TB_UserController {
 	}
 
 	//아이디 중복체크
-	@RequestMapping(value="/userIdCk.do", method=RequestMethod.POST)
-	public String userIdCk(String userId) throws Exception{
-		System.out.println(userId);
+	@RequestMapping(value="/useridck.do", method=RequestMethod.POST)
+	public String userIdCk(TB_UserVO user) throws Exception{
+		System.out.println(user);
 		
-		int result = service.idCheck(userId);
+		int result = service.idCheck(user);
 
 		if (result != 0) {
 			return "fail";
@@ -150,9 +150,13 @@ public class TB_UserController {
     // 안드로이드로그인
     @PostMapping("/androidlogin.do")
     public TB_UserVO androidlogin(TB_UserVO user) throws Exception{
+    	System.out.println("====================================");
     	System.out.println(user);
+    	System.out.println("====================================");
     	TB_UserVO member=service.selectOneList(user);
-    	System.out.println(member);
+    	System.out.println("====================================");
+    	System.out.println(user);
+    	System.out.println("====================================");
         if (!passwordEncoder.matches(user.getUser_pw(), member.getUser_pw())) {
             throw new IllegalArgumentException("잘못된 비밀번호입니다.");
         }
@@ -161,12 +165,16 @@ public class TB_UserController {
     //안드로이드 회원가입
     @PostMapping("/androidjoin.do")
     public String androidjoin(TB_UserVO user) throws Exception{
-    	
-    	
+    	System.out.println("====================================");
+    	System.out.println(user);
+    	System.out.println("====================================");
 		String rawPassword=user.getUser_pw();
 		String encPassword=passwordEncoder.encode(rawPassword);
+		
 		user.setUser_pw(encPassword);
-		System.out.println(user); 
+    	System.out.println("====================================");
+    	System.out.println(user);
+    	System.out.println("====================================");
     	service.userJoin(user);
     	
     	return "success";

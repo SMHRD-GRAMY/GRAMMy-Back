@@ -13,7 +13,7 @@ public interface TB_UserService {
 	
 	public void userJoin(TB_UserVO user) throws Exception;
 	
-	public int idCheck(String userId) throws Exception;
+	public int idCheck(TB_UserVO user) throws Exception;
 	
 	public TB_UserVO selectOneList(TB_UserVO vo) throws Exception;
 	

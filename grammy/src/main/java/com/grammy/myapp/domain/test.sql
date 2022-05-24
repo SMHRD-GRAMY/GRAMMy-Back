@@ -14,7 +14,7 @@ insert into TB_purchase(purchase_seq,
     '고승표'
     ); 
 
-
+select * from tb_user;
 select * from tb_a_reply;
 select * from TB_APP_BOARD;
 
